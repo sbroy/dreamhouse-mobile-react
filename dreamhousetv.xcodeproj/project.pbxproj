@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05DF20921CECD85D00D48CFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
+		05DF20931CECD85D00D48CFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
+		05DF20941CECD85D00D48CFC /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */; };
+		05DF20971CECD85D00D48CFC /* libDesignSystemReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA61F5B7283A4F07B11D5C56 /* libDesignSystemReactNative.a */; };
+		05DF20991CECD85D00D48CFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */; };
+		05F7BE311CF4014A00057E91 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F7BE301CF4014A00057E91 /* logo.png */; };
+		0DB91D972BBB729F9080F4A3 /* libPods-dreamhouse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4A7B496D5E66AD45F1252C /* libPods-dreamhouse.a */; };
+		2D7E3EB31D072FA900213393 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D7E3EB21D072FA900213393 /* main.jsbundle */; };
+		2DADF5321CF678ED00321AD1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DADF5311CF678ED00321AD1 /* libc++.tbd */; };
+		2DC782E61D0224FF00E87A30 /* SalesforceDesignSystemIconsAction.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782DF1D0224FF00E87A30 /* SalesforceDesignSystemIconsAction.ttf */; };
+		2DC782E71D0224FF00E87A30 /* SalesforceDesignSystemIconsCustom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782E01D0224FF00E87A30 /* SalesforceDesignSystemIconsCustom.ttf */; };
+		2DC782E81D0224FF00E87A30 /* SalesforceDesignSystemIconsStandard.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782E11D0224FF00E87A30 /* SalesforceDesignSystemIconsStandard.ttf */; };
+		2DC782E91D0224FF00E87A30 /* SalesforceDesignSystemIconsUtility.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782E21D0224FF00E87A30 /* SalesforceDesignSystemIconsUtility.ttf */; };
+		2DC782EA1D0224FF00E87A30 /* SalesforceSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782E31D0224FF00E87A30 /* SalesforceSans-Bold.ttf */; };
+		2DC782EB1D0224FF00E87A30 /* SalesforceSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782E41D0224FF00E87A30 /* SalesforceSans-Light.ttf */; };
+		2DC782EC1D0224FF00E87A30 /* SalesforceSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DC782E51D0224FF00E87A30 /* SalesforceSans-Regular.ttf */; };
+		2DE8C6641D06045A00009D09 /* libSalesforceBaseTheme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1D2D131D024BB40065E725 /* libSalesforceBaseTheme.a */; };
+		4F8D5EA31B6C0568005E64D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA21B6C0568005E64D4 /* main.m */; };
+		4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */; };
+		4F8D5EAE1B6C0568005E64D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */; };
+		4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D1D2D121D024BB40065E725 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D1D2D0E1D024BB40065E725 /* SalesforceBaseThemeTV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05E4E6EC1CBDF7BE00899BCA;
+			remoteInfo = SalesforceBaseTheme;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0118A163862CE44362B1146F /* Pods-dreamhouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dreamhouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dreamhouse/Pods-dreamhouse.debug.xcconfig"; sourceTree = "<group>"; };
+		05DF20A61CECD85D00D48CFC /* dreamhouse copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dreamhouse copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F7BE301CF4014A00057E91 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		2D1D2D0E1D024BB40065E725 /* SalesforceBaseThemeTV.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SalesforceBaseThemeTV.xcodeproj; path = node_modules/react.force.base.theme/ios/SalesforceBaseTheme/SalesforceBaseThemeTV.xcodeproj; sourceTree = "<group>"; };
+		2D7E3EB21D072FA900213393 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		2DADF5311CF678ED00321AD1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2DC782DF1D0224FF00E87A30 /* SalesforceDesignSystemIconsAction.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SalesforceDesignSystemIconsAction.ttf; path = node_modules/react.force.base.theme/Fonts/SalesforceDesignSystemIconsAction.ttf; sourceTree = "<group>"; };
+		2DC782E01D0224FF00E87A30 /* SalesforceDesignSystemIconsCustom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SalesforceDesignSystemIconsCustom.ttf; path = node_modules/react.force.base.theme/Fonts/SalesforceDesignSystemIconsCustom.ttf; sourceTree = "<group>"; };
+		2DC782E11D0224FF00E87A30 /* SalesforceDesignSystemIconsStandard.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SalesforceDesignSystemIconsStandard.ttf; path = node_modules/react.force.base.theme/Fonts/SalesforceDesignSystemIconsStandard.ttf; sourceTree = "<group>"; };
+		2DC782E21D0224FF00E87A30 /* SalesforceDesignSystemIconsUtility.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SalesforceDesignSystemIconsUtility.ttf; path = node_modules/react.force.base.theme/Fonts/SalesforceDesignSystemIconsUtility.ttf; sourceTree = "<group>"; };
+		2DC782E31D0224FF00E87A30 /* SalesforceSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SalesforceSans-Bold.ttf"; path = "node_modules/react.force.base.theme/Fonts/SalesforceSans-Bold.ttf"; sourceTree = "<group>"; };
+		2DC782E41D0224FF00E87A30 /* SalesforceSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SalesforceSans-Light.ttf"; path = "node_modules/react.force.base.theme/Fonts/SalesforceSans-Light.ttf"; sourceTree = "<group>"; };
+		2DC782E51D0224FF00E87A30 /* SalesforceSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SalesforceSans-Regular.ttf"; path = "node_modules/react.force.base.theme/Fonts/SalesforceSans-Regular.ttf"; sourceTree = "<group>"; };
+		4F8D5E9D1B6C0568005E64D4 /* dreamhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dreamhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F8D5EA11B6C0568005E64D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F8D5EA21B6C0568005E64D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F8D5EA41B6C0568005E64D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4F8D5EC61B6C0F94005E64D4 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		9601BA6EADAA4C989290C08E /* Pods-dreamhouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dreamhouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-dreamhouse/Pods-dreamhouse.release.xcconfig"; sourceTree = "<group>"; };
+		9F4A7B496D5E66AD45F1252C /* libPods-dreamhouse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dreamhouse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA61F5B7283A4F07B11D5C56 /* libDesignSystemReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libDesignSystemReactNative.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05DF20951CECD85D00D48CFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DF20971CECD85D00D48CFC /* libDesignSystemReactNative.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F8D5E9A1B6C0568005E64D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DE8C6641D06045A00009D09 /* libSalesforceBaseTheme.a in Frameworks */,
+				2DADF5321CF678ED00321AD1 /* libc++.tbd in Frameworks */,
+				0DB91D972BBB729F9080F4A3 /* libPods-dreamhouse.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05F7BE2F1CF4014A00057E91 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				05F7BE301CF4014A00057E91 /* logo.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		12F97E6AA7FDE83446C36A13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0118A163862CE44362B1146F /* Pods-dreamhouse.debug.xcconfig */,
+				9601BA6EADAA4C989290C08E /* Pods-dreamhouse.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2D1D2D0F1D024BB40065E725 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D1D2D131D024BB40065E725 /* libSalesforceBaseTheme.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F8D5E941B6C0568005E64D4 = {
+			isa = PBXGroup;
+			children = (
+				4F8D5E9F1B6C0568005E64D4 /* dreamhouse */,
+				4F8D5E9E1B6C0568005E64D4 /* Products */,
+				746047FD40DE4DEF81D36853 /* Libraries */,
+				799288BF02274A06900D14E7 /* Resources */,
+				A4981582B2FB725992122719 /* Frameworks */,
+				12F97E6AA7FDE83446C36A13 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		4F8D5E9E1B6C0568005E64D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F8D5E9D1B6C0568005E64D4 /* dreamhouse.app */,
+				05DF20A61CECD85D00D48CFC /* dreamhouse copy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F8D5E9F1B6C0568005E64D4 /* dreamhouse */ = {
+			isa = PBXGroup;
+			children = (
+				4F8D5ECC1B6C1021005E64D4 /* Classes */,
+				4F8D5EA01B6C0568005E64D4 /* Supporting Files */,
+			);
+			path = dreamhouse;
+			sourceTree = "<group>";
+		};
+		4F8D5EA01B6C0568005E64D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F8D5EAD1B6C0568005E64D4 /* Images.xcassets */,
+				4F8D5EA11B6C0568005E64D4 /* Info.plist */,
+				4F8D5EA21B6C0568005E64D4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F8D5ECC1B6C1021005E64D4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2D7E3EB21D072FA900213393 /* main.jsbundle */,
+				4F8D5EC61B6C0F94005E64D4 /* InitialViewController.h */,
+				4F8D5EC71B6C0F94005E64D4 /* InitialViewController.m */,
+				4F8D5EA41B6C0568005E64D4 /* AppDelegate.h */,
+				4F8D5EA51B6C0568005E64D4 /* AppDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		746047FD40DE4DEF81D36853 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		799288BF02274A06900D14E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2DC782DF1D0224FF00E87A30 /* SalesforceDesignSystemIconsAction.ttf */,
+				2DC782E01D0224FF00E87A30 /* SalesforceDesignSystemIconsCustom.ttf */,
+				2DC782E11D0224FF00E87A30 /* SalesforceDesignSystemIconsStandard.ttf */,
+				2DC782E21D0224FF00E87A30 /* SalesforceDesignSystemIconsUtility.ttf */,
+				2DC782E31D0224FF00E87A30 /* SalesforceSans-Bold.ttf */,
+				2DC782E41D0224FF00E87A30 /* SalesforceSans-Light.ttf */,
+				2DC782E51D0224FF00E87A30 /* SalesforceSans-Regular.ttf */,
+				05F7BE2F1CF4014A00057E91 /* assets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A4981582B2FB725992122719 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D1D2D0E1D024BB40065E725 /* SalesforceBaseThemeTV.xcodeproj */,
+				2DADF5311CF678ED00321AD1 /* libc++.tbd */,
+				9F4A7B496D5E66AD45F1252C /* libPods-dreamhouse.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05DF208F1CECD85D00D48CFC /* dreamhouse copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05DF20A31CECD85D00D48CFC /* Build configuration list for PBXNativeTarget "dreamhouse copy" */;
+			buildPhases = (
+				05DF20AB1CECD8C200D48CFC /* ShellScript */,
+				05DF20911CECD85D00D48CFC /* Sources */,
+				05DF20951CECD85D00D48CFC /* Frameworks */,
+				05DF20981CECD85D00D48CFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "dreamhouse copy";
+			productName = dreamhouse;
+			productReference = 05DF20A61CECD85D00D48CFC /* dreamhouse copy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F8D5E9C1B6C0568005E64D4 /* dreamhouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "dreamhouse" */;
+			buildPhases = (
+				477F8E3677352D9777A47201 /* 📦 Check Pods Manifest.lock */,
+				4F8D5E991B6C0568005E64D4 /* Sources */,
+				4F8D5E9A1B6C0568005E64D4 /* Frameworks */,
+				4F8D5E9B1B6C0568005E64D4 /* Resources */,
+				54EA1275778C45993C878C4F /* 📦 Embed Pods Frameworks */,
+				C0D0ABCEAC723F8EC0D49268 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dreamhouse;
+			productName = dreamhouse;
+			productReference = 4F8D5E9D1B6C0568005E64D4 /* dreamhouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F8D5E951B6C0568005E64D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 710;
+				ORGANIZATIONNAME = Salesforce;
+				TargetAttributes = {
+					4F8D5E9C1B6C0568005E64D4 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = P83ZV6W49Z;
+					};
+				};
+			};
+			buildConfigurationList = 4F8D5E981B6C0568005E64D4 /* Build configuration list for PBXProject "dreamhousetv" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F8D5E941B6C0568005E64D4;
+			productRefGroup = 4F8D5E9E1B6C0568005E64D4 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2D1D2D0F1D024BB40065E725 /* Products */;
+					ProjectRef = 2D1D2D0E1D024BB40065E725 /* SalesforceBaseThemeTV.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4F8D5E9C1B6C0568005E64D4 /* dreamhouse */,
+				05DF208F1CECD85D00D48CFC /* dreamhouse copy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2D1D2D131D024BB40065E725 /* libSalesforceBaseTheme.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSalesforceBaseTheme.a;
+			remoteRef = 2D1D2D121D024BB40065E725 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05DF20981CECD85D00D48CFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DF20991CECD85D00D48CFC /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F8D5E9B1B6C0568005E64D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F8D5EAE1B6C0568005E64D4 /* Images.xcassets in Resources */,
+				05F7BE311CF4014A00057E91 /* logo.png in Resources */,
+				2DC782E91D0224FF00E87A30 /* SalesforceDesignSystemIconsUtility.ttf in Resources */,
+				2DC782E81D0224FF00E87A30 /* SalesforceDesignSystemIconsStandard.ttf in Resources */,
+				2DC782EA1D0224FF00E87A30 /* SalesforceSans-Bold.ttf in Resources */,
+				2DC782EC1D0224FF00E87A30 /* SalesforceSans-Regular.ttf in Resources */,
+				2DC782EB1D0224FF00E87A30 /* SalesforceSans-Light.ttf in Resources */,
+				2D7E3EB31D072FA900213393 /* main.jsbundle in Resources */,
+				2DC782E71D0224FF00E87A30 /* SalesforceDesignSystemIconsCustom.ttf in Resources */,
+				2DC782E61D0224FF00E87A30 /* SalesforceDesignSystemIconsAction.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05DF20AB1CECD8C200D48CFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "curl http://localhost:8081/index.ios.bundle?dev=false -o main.jsbundle";
+		};
+		477F8E3677352D9777A47201 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		54EA1275778C45993C878C4F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dreamhouse/Pods-dreamhouse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0D0ABCEAC723F8EC0D49268 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dreamhouse/Pods-dreamhouse-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05DF20911CECD85D00D48CFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DF20921CECD85D00D48CFC /* AppDelegate.m in Sources */,
+				05DF20931CECD85D00D48CFC /* main.m in Sources */,
+				05DF20941CECD85D00D48CFC /* InitialViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F8D5E991B6C0568005E64D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F8D5EA61B6C0568005E64D4 /* AppDelegate.m in Sources */,
+				4F8D5EA31B6C0568005E64D4 /* main.m in Sources */,
+				4F8D5EC81B6C0F94005E64D4 /* InitialViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		05DF20A41CECD85D00D48CFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				INFOPLIST_FILE = "dreamhouse copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05DF20A51CECD85D00D48CFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				INFOPLIST_FILE = "dreamhouse copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4F8D5EBE1B6C0568005E64D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		4F8D5EBF1B6C0568005E64D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F8D5EC11B6C0568005E64D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0118A163862CE44362B1146F /* Pods-dreamhouse.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				INFOPLIST_FILE = dreamhouse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		4F8D5EC21B6C0568005E64D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9601BA6EADAA4C989290C08E /* Pods-dreamhouse.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				INFOPLIST_FILE = dreamhouse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05DF20A31CECD85D00D48CFC /* Build configuration list for PBXNativeTarget "dreamhouse copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DF20A41CECD85D00D48CFC /* Debug */,
+				05DF20A51CECD85D00D48CFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F8D5E981B6C0568005E64D4 /* Build configuration list for PBXProject "dreamhousetv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F8D5EBE1B6C0568005E64D4 /* Debug */,
+				4F8D5EBF1B6C0568005E64D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F8D5EC01B6C0568005E64D4 /* Build configuration list for PBXNativeTarget "dreamhouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F8D5EC11B6C0568005E64D4 /* Debug */,
+				4F8D5EC21B6C0568005E64D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F8D5E951B6C0568005E64D4 /* Project object */;
+}

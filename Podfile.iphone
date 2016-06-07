@@ -1,13 +1,13 @@
-# Apple TV workspace
+# iPhone workspace
 
 target 'dreamhouse' do
 
-project 'dreamhousetv.xcodeproj'
+project 'dreamhouse.xcodeproj'
 
 source 'https://github.com/douglowder/SalesforceMobileSDK-iOS-Specs.git' # need to be first
 source 'https://github.com/CocoaPods/Specs.git'
 
-pod 'ReactTV', :path => './node_modules/react-native', :subspecs => [
+pod 'React', :path => './node_modules/react-native', :subspecs => [
   'Core',
   'RCTImage',
   'RCTNetwork',
@@ -24,12 +24,12 @@ post_install do |installer|
   end
 end
 
-pod 'SalesforceSDKCoreTV'
-pod 'SalesforceNetworkTV'
-pod 'SalesforceRestAPITV'
-pod 'SmartStoreTV'
-pod 'SmartSyncTV'
-pod 'SalesforceReactTV'
+pod 'SalesforceSDKCore'
+pod 'SalesforceNetwork'
+pod 'SalesforceRestAPI'
+pod 'SmartStore'
+pod 'SmartSync'
+pod 'SalesforceReact'
 
 end
 

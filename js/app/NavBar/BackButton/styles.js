@@ -24,10 +24,10 @@
  
 'use strict';
 
-var React = require('react-native');
+var ReactNative = require('react-native');
 var {
     StyleSheet,
-} = React;
+} = ReactNative;
 
 module.exports = StyleSheet.create({
   icon: {
