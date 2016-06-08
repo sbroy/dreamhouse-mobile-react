@@ -115,9 +115,14 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
     
 
     
-    NSString *username = @"my.salesforce.username@company.com";
-    NSString *password = @"my.salesforce.password";
-    NSString *securityToken = @"my.security.token";
+//    NSString *username = @"kapil.gowru+dreamhouzz@salesforce.com";
+//    NSString *password = @"Pistons1";
+//    NSString *securityToken = @"3yoBfVibfjgRWtwp9G00DkuId";
+    
+    NSString *username = @"apple@touch.org";
+    NSString *password = @"123456";
+    NSString *securityToken = @"8mVdqDwYeBBGbHjQUKfLxj4dj";
+
     
     NSString *requestDataString = [NSString stringWithFormat:@"\
                                    <env:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \
@@ -152,6 +157,7 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
                                
                                NSString *responseData = [[NSString alloc] initWithBytes:data.bytes length:data.length encoding:NSUTF8StringEncoding];
                                
+//                               NSLog(reponseDaresponseDatata);
                                // Extract access token
 
                                NSRange range1 = [responseData rangeOfString:@"<sessionId>"];
@@ -171,7 +177,8 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
                                
                                user.credentials.accessToken = accessToken;
                                
-                               user.credentials.instanceUrl = [NSURL URLWithString:@"https://na30.salesforce.com/"];
+//                               user.credentials.instanceUrl = [NSURL URLWithString:@"https://na30.salesforce.com/"];
+                               user.credentials.instanceUrl = [NSURL URLWithString:@"https://na45.salesforce.com/"];
                                
                                SFOAuthCoordinator *newRestApiCoord = [[SFOAuthCoordinator alloc] initWithCredentials:user.credentials];
                                [SFUserAccountManager sharedInstance].currentUser = user;

@@ -23,7 +23,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 'use strict';
 
 var React = require('react');
@@ -64,7 +64,9 @@ module.exports = React.createClass({
   getInitialState() {
     if(__APPLETV__) {
       return {
-        route: routes['propertyList']
+        route: routes['DashboardList'],
+        navigator: null,
+        isTabBarFocused : true
       };
     } else {
       return {
@@ -77,6 +79,7 @@ module.exports = React.createClass({
   handleMenuPress(route) {
     if(__APPLETV__) {
       this.changeRoute(this.state.route,route);
+
     } else {
       this.setState({isOpen:false});
       this.state.navigator.replace(route);
@@ -95,15 +98,17 @@ module.exports = React.createClass({
     if(r && r.comp){
       return (
         <View style={styles.page}>
-          <r.comp route={route} navigator={navigator} />
+          <r.comp route={route}  navigator={navigator}/>
         </View>
       );
     }
-    return (
-      <View style={styles.page}>
-        <initialRoute.comp route={route} navigator={navigator} />
-      </View>
-    );
+    console.warn('no route exists');
+    // return (
+    //   <View style={styles.page}>
+    //     <initialRoute.comp route={route} navigator={navigator}/>
+    //   </View>
+
+    // );
   },
 
   handleMenuOpen(){
@@ -118,8 +123,10 @@ module.exports = React.createClass({
   },
 
   changeRoute(oldRoute,newRoute) {
+    console.warn('menu press');
     if(oldRoute.name !== newRoute.name) {
       this.setState({"route":newRoute});
+      this.state.navigator.replace(route);
     }
   },
 
@@ -136,25 +143,33 @@ module.exports = React.createClass({
   },
 //////////
 
+
   render() {
     if(__APPLETV__) {
+        // {this.router(this.state.route,this.state.navigator)}
+
       return (
         <View style={styles.container}>
-         <TabBarIOS
+           <TabBarIOS
            unselectedTintColor="white"
-           tintColor="red"
-           barTintColor="darkslateblue"
+           tintColor="dodgerblue"
+           // barTintColor="darkslateblue"
+           translucent={true}
            >
-           {this.renderTabBarItem("propertyList","Properties")}
-           {this.renderTabBarItem("brokerList","Brokers")}
-           {this.renderTabBarItem("favoriteList","Favorites")}
-         </TabBarIOS> 
-        {this.router(this.state.route,this)}
+           {this.renderTabBarItem("DashboardList","Dashboard")}
+         </TabBarIOS>
+        <Navigator
+            style={{height:0,marginTop: -800}}
+            // configureScene={() => Navigator.SceneConfigs.PushFromRight}
+            initialRoute={this.state.route}
+            renderScene={this.router}
+            // navigationBar={<Navigator.NavigationBar routeMapper={NavigationBarRouteMapper({onMenuOpen:this.handleMenuOpen})} style={styles.navbar}/>}
+        />
        </View>
       );
     } else {
       return (
-      <SideMenu 
+      <SideMenu
         isOpen={this.state.isOpen}
         menu={<MainMenu onMenuPress={this.handleMenuPress} />}>
         <Navigator

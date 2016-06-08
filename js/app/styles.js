@@ -23,7 +23,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 /*
  * Copyright (c) 2015, salesforce.com, inc.
  * All rights reserved.
@@ -72,13 +72,13 @@ module.exports = StyleSheet.create({
   },
   navbar: {
     backgroundColor: '#81ca2b',
-    height:60
+    height:0
   },
   page:{
     flex:__APPLETV__ ? 6 : 1,
-    marginTop:__APPLETV__ ? 0 : 60,
-    marginBottom:__APPLETV__ ? 60 : 0,
+    // marginTop:__APPLETV__ ? 0 : 60,
+    marginBottom:__APPLETV__ ? 0 : 0,
     borderLeftWidth: 1,
-    borderLeftColor: '#d8dde6' 
+    borderLeftColor: '#d8dde6'
   }
 });
