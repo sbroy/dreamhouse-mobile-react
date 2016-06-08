@@ -44,18 +44,12 @@ import MenuItem from './MenuItem';
 
 import Header from './Header';
 
-import {oauth} from 'react.force';
-
 module.exports = React.createClass({
     
   handleMenuItemPress(route) {
     if(this.props.onMenuPress){
       this.props.onMenuPress(route);
     }
-  },
-
-  handleLogout(){
-    oauth.logout();
   },
 
   getMenuItems () {
@@ -77,8 +71,6 @@ module.exports = React.createClass({
         <ScrollView>
           { this.getMenuItems() }
         </ScrollView>
-          <Logout label='Logout' onPress={this.handleLogout} />
-
       </View>
     );
   }
