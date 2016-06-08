@@ -24,13 +24,18 @@
 
 #import "AppDelegate.h"
 #import "InitialViewController.h"
+#if TARGET_OS_TV
+#import <ReactTV/RCTRootView.h>
+#else
 #import <React/RCTRootView.h>
+#endif
 #import <SalesforceSDKCore/SFPushNotificationManager.h>
 #import <SalesforceSDKCore/SFDefaultUserManagementViewController.h>
 #import <SalesforceSDKCore/SalesforceSDKManager.h>
 #import <SalesforceSDKCore/SFUserAccountManager.h>
 #import <SalesforceSDKCore/SFLogger.h>
 #import <SmartStore/SalesforceSDKManagerWithSmartStore.h>
+#import <SalesforceRestAPI/SalesforceRestAPI.h>
 
 #include "TargetConditionals.h"
 
@@ -46,9 +51,12 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
     if (self) {
         [SFLogger setLogLevel:SFLogLevelDebug];
 
-        // Need to use SalesforceSDKManagerWithSmartStore when using smartstore
-        [SalesforceSDKManager setInstanceClass:[SalesforceSDKManagerWithSmartStore class]];
+        [SalesforceSDKManager sharedManager].useSnapshotView = NO;
         
+        // Need to use SalesforceSDKManagerWithSmartStore when using smartstore
+
+        [SalesforceSDKManager setInstanceClass:[SalesforceSDKManagerWithSmartStore class]];
+/*
         [SalesforceSDKManager sharedManager].connectedAppId = RemoteAccessConsumerKey;
         [SalesforceSDKManager sharedManager].connectedAppCallbackUri = OAuthRedirectURI;
         [SalesforceSDKManager sharedManager].authScopes = @[ @"web", @"api" ];
@@ -75,6 +83,9 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
         [SalesforceSDKManager sharedManager].switchUserAction = ^(SFUserAccount *fromUser, SFUserAccount *toUser) {
             [weakSelf handleUserSwitch:fromUser toUser:toUser];
         };
+        
+   */
+        
     }
     
     return self;
@@ -84,7 +95,7 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
 {
     self.launchOptions = launchOptions;
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self initializeAppViewState];
+//    [self initializeAppViewState];
     
     //If you wish to customize the color, textcolor, font and fontsize of the navigation bar uncomment the
     //code below.
@@ -95,7 +106,86 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
     //loginViewController.navBarFont = [UIFont fontWithName:@"Helvetica" size:16.0];
     //loginViewController.navBarTextColor = [UIColor blackColor];
     //
-    [[SalesforceSDKManager sharedManager] launch];
+    
+    //
+    // For now, use SOAP authentication to log in (requires security token)
+    // (See https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)
+    //
+    // TODO: Build a proper authentication flow.
+    
+
+    
+    NSString *username = @"my.salesforce.username@company.com";
+    NSString *password = @"my.salesforce.password";
+    NSString *securityToken = @"my.security.token";
+    
+    NSString *requestDataString = [NSString stringWithFormat:@"\
+                                   <env:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \
+                                                       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \
+                                                       xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\"> \
+                                   <env:Body>\
+                                   <n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">\
+                                   <n1:username>%@</n1:username>\
+                                   <n1:password>%@%@</n1:password>\
+                                   </n1:login>\
+                                   </env:Body>\
+                                   </env:Envelope>",
+                                   username,password,securityToken];
+    
+    NSURL *url = [NSURL URLWithString:@"https://login.salesforce.com/services/Soap/u/36.0"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [NSData dataWithBytes:[requestDataString cStringUsingEncoding:NSUTF8StringEncoding] length:[requestDataString lengthOfBytesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setValue:@"text/xml" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"login" forHTTPHeaderField:@"SOAPAction"];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue new]
+                           completionHandler:^(NSURLResponse *response, NSData *data,  NSError *error) {
+                               
+                               if(error) {
+                                   NSLog(@"Authentication error: %@",[error description]);
+                                   return;
+                               }
+                               
+                               NSString *responseData = [[NSString alloc] initWithBytes:data.bytes length:data.length encoding:NSUTF8StringEncoding];
+                               
+                               // Extract access token
+
+                               NSRange range1 = [responseData rangeOfString:@"<sessionId>"];
+                               NSRange range2 = [responseData rangeOfString:@"</sessionId>"];
+                               if(range1.location == NSNotFound || range2.location == NSNotFound) {
+                                   NSLog(@"Authentication error: %@",responseData);
+                                   return;
+                               }
+                               
+                               NSString *accessToken = [responseData substringWithRange:NSMakeRange(range1.location + range1.length, range2.location - (range1.location + range1.length))];
+                               
+                               SFUserAccount *user = [SFUserAccount new];
+                               user.credentials = [[SFOAuthCredentials alloc] initWithIdentifier:@"dreamhouse"
+                                                                                        clientId:RemoteAccessConsumerKey
+                                                                                       encrypted:NO
+                                                                                     storageType:SFOAuthCredentialsStorageTypeNone];
+                               
+                               user.credentials.accessToken = accessToken;
+                               
+                               user.credentials.instanceUrl = [NSURL URLWithString:@"https://na30.salesforce.com/"];
+                               
+                               SFOAuthCoordinator *newRestApiCoord = [[SFOAuthCoordinator alloc] initWithCredentials:user.credentials];
+                               [SFUserAccountManager sharedInstance].currentUser = user;
+                               
+                               
+                               [[SFRestAPI sharedInstance] setCoordinator:newRestApiCoord];
+
+                               [self performSelectorOnMainThread:@selector(setupRootViewController)
+                                                      withObject:nil
+                                                   waitUntilDone:NO];
+                               
+                           }];
+    
+    
     return YES;
 }
 
@@ -148,7 +238,13 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
      */
 
 #if (TARGET_IPHONE_SIMULATOR)
-    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%@/index.ios.bundle",@"8081"]];
+    
+#if TARGET_OS_TV
+     NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%@/index.ios.bundle?platform=ios&dev=true&appletv=true",@"8081"]];
+#else
+    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%@/index.ios.bundle?platform=ios&dev=true",@"8081"]];
+#endif
+    
 #else
 
  NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
@@ -181,6 +277,7 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
     UIViewController *rootViewController = [[UIViewController alloc] init];
     rootViewController.view = rootView;
     self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)resetViewState:(void (^)(void))postResetBlock

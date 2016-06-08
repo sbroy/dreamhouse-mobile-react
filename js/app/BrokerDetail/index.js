@@ -84,6 +84,6 @@ module.exports = React.createClass({
           <CompactLayout onLayoutTap={this.handleLayoutTap} />
         </ScrollRefresh>
       </SobjContainer>
-      </View>
     );
   },
+});

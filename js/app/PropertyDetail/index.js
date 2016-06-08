@@ -39,18 +39,13 @@ var {
 } = ReactNative;
 
 import {CompactLayout} from 'react.force.layout';
-import {SobjContainer} from 'react.force.datacontainer';
+import {SobjContainer,ScrollRefresh} from 'react.force.datacontainer';
 
 import styles from './styles';
 
 import Header from './Header';
 
 module.exports = React.createClass({    
-
-
-
-
-
   handleLayoutTap(layoutTapEvent){
     if(layoutTapEvent && layoutTapEvent.refSobj && layoutTapEvent.refSobj.attributes){
       if(layoutTapEvent.eventType === 'reference'){

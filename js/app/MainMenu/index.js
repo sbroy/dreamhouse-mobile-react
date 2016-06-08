@@ -44,8 +44,6 @@ import MenuItem from './MenuItem';
 
 import Header from './Header';
 
-import Logout from './Logout';
-
 import {oauth} from 'react.force';
 
 module.exports = React.createClass({

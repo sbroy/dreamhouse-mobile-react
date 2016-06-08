@@ -24,9 +24,9 @@
  
 'use strict';
 
-import React from 'react-native';
+import ReactNative from 'react-native';
 
-module.exports = React.StyleSheet.create({
+module.exports = ReactNative.StyleSheet.create({
     container: {
       marginTop:20,
       marginBottom:20
