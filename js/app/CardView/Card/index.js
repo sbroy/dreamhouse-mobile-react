@@ -26,7 +26,6 @@ module.exports = React.createClass({
   },
 
   handlePress() {
-    console.warn("clicked tile");
     if(this.props.navigator){
       this.props.navigator.push({
         name:'UserDetailView',

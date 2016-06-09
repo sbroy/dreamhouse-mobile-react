@@ -123,7 +123,6 @@ module.exports = React.createClass({
   },
 
   changeRoute(oldRoute,newRoute) {
-    console.warn('menu press');
     if(oldRoute.name !== newRoute.name) {
       this.setState({"route":newRoute});
       this.state.navigator.replace(route);
@@ -136,6 +135,7 @@ module.exports = React.createClass({
              title={title}
              selected={this.state.route.name === name}
              onPress={() => this.changeRoute(this.state.route,routes[name])}
+             // onTVFocus={() => {console.warn("FOCUS")}}
              >
              <Text></Text>
           </TabBarIOS.Item>
@@ -150,21 +150,21 @@ module.exports = React.createClass({
 
       return (
         <View style={styles.container}>
-           <TabBarIOS
-           unselectedTintColor="white"
-           tintColor="dodgerblue"
-           // barTintColor="darkslateblue"
-           translucent={true}
-           >
-           {this.renderTabBarItem("DashboardList","Dashboard")}
-         </TabBarIOS>
-        <Navigator
-            style={{height:0,marginTop: -800}}
-            // configureScene={() => Navigator.SceneConfigs.PushFromRight}
-            initialRoute={this.state.route}
-            renderScene={this.router}
-            // navigationBar={<Navigator.NavigationBar routeMapper={NavigationBarRouteMapper({onMenuOpen:this.handleMenuOpen})} style={styles.navbar}/>}
-        />
+          <TabBarIOS
+          unselectedTintColor="white"
+          tintColor="dodgerblue"
+          // barTintColor="darkslateblue"
+          translucent={true}
+          >
+          {this.renderTabBarItem("DashboardList","Dashboard")}
+          </TabBarIOS>
+          <Navigator
+              style={{height:0,marginTop: -800}}
+              // configureScene={() => Navigator.SceneConfigs.PushFromRight}
+              initialRoute={this.state.route}
+              renderScene={this.router}
+              // navigationBar={<Navigator.NavigationBar routeMapper={NavigationBarRouteMapper({onMenuOpen:this.handleMenuOpen})} style={styles.navbar}/>}
+          />
        </View>
       );
     } else {
