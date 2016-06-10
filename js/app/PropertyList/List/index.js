@@ -23,7 +23,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 'use strict';
 
 import React from 'react';
@@ -55,7 +55,6 @@ module.exports = React.createClass({
     contextTypes: {
       dataSource: React.PropTypes.object,
     },
-    
     renderRow (sobj) {
       return (
         <SobjContainer key={sobj.Id} type={sobj.attributes.type} id={sobj.Id} sobj={sobj}>
@@ -73,7 +72,7 @@ module.exports = React.createClass({
       );
      } else {
       return (
-        <ListView 
+        <ListView
           dataSource={this.context.dataSource}
           renderRow={this.renderRow} />
       );

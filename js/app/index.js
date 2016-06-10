@@ -56,7 +56,7 @@ import MainMenu from './MainMenu';
 
 import NavigationBarRouteMapper from './NavBar/mapper';
 
-import {QueryCounter} from 'react.force.data';
+// import {QueryCounter} from 'react.force.data';
 
 
 module.exports = React.createClass({
@@ -155,6 +155,8 @@ module.exports = React.createClass({
           tintColor="dodgerblue"
           // barTintColor="darkslateblue"
           translucent={true}
+          onTVFocus={()=> {console.warn('focused on tab bar!')}}
+          onTVBlur={()=> {console.warn('blur on tab bar!')}}
           >
           {this.renderTabBarItem("DashboardList","Dashboard")}
           </TabBarIOS>

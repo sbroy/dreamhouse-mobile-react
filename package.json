@@ -8,12 +8,12 @@
   "dependencies": {
     "accounting": "^0.4.1",
     "react": "15.1.0",
-    "react-native": "https://github.com/douglowder/react-native-appletv.git#master",
+    "react-native": "https://github.com/kgowru/react-native-appletv.git#master",
     "react-native-side-menu": "^0.19.0",
-    "react.force": "https://github.com/douglowder/react.force.git",
-    "react.force.base.theme": "https://github.com/douglowder/react.force.base.theme.git",
-    "react.force.data": "https://github.com/douglowder/react.force.data.git",
-    "react.force.datacontainer": "https://github.com/douglowder/react.force.datacontainer.git",
+    "react.force": "https://github.com/kgowru/react.force.git",
+    "react.force.base.theme": "https://github.com/kgowru/react.force.base.theme.git",
+    "react.force.data": "https://github.com/kgowru/react.force.data.git",
+    "react.force.datacontainer": "https://github.com/kgowru/react.force.datacontainer.git",
     "react.force.layout": "https://github.com/douglowder/react.force.layout.git"
   }
 }
