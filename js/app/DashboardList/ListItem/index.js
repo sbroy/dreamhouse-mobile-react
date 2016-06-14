@@ -8,10 +8,9 @@ const {
     Text
 } = ReactNative;
 
-// import SLDS from 'design-system-react-native';
-
 import Theme from 'react.force.base.theme';
 
+let clickedAt = null;
 
 module.exports = React.createClass({
     getDefaultProps(){
@@ -20,15 +19,18 @@ module.exports = React.createClass({
     },
 
     handlePress() {
-      // console.warn('listitem clicked' + JSON.stringify(this.props.navigator));
-      if(this.props.navigator){
-        this.props.navigator.push({
-          name:'CardView',
-          dbName: this.props.rowData.name,
-          dbId: this.props.rowData.id,
-          label: this.props.rowData.name
-        });
-      }
+      // debouncing multiple clicks
+      let clickedAtNow = new Date().getTime();
+      if(!clickedAt || clickedAtNow - clickedAt > 1000)
+        if(this.props.navigator){
+          this.props.navigator.push({
+            name:'CardView',
+            dbName: this.props.rowData.name,
+            dbId: this.props.rowData.id,
+            label: this.props.rowData.name
+          });
+        }
+        clickedAt = new Date().getTime();
     },
 
     render () {

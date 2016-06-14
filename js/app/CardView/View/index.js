@@ -22,7 +22,8 @@ import {ChatterUserContainer} from 'react.force.datacontainer';
 
 var styles = StyleSheet.create({
    list: {
-    margin:20,
+    margin:30,
+    marginLeft:80,
     justifyContent: 'flex-start',
     flexDirection: 'row',
     flexWrap: 'wrap',

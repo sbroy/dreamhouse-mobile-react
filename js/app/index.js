@@ -146,27 +146,32 @@ module.exports = React.createClass({
 
   render() {
     if(__APPLETV__) {
-        // {this.router(this.state.route,this.state.navigator)}
+        // // {this.router(this.state.route,this.state.navigator)}
+        //  <TabBarIOS
+        //   style={{height:0}}
+        //   unselectedTintColor="white"
+        //   tintColor="dodgerblue"
+        //   // barTintColor="darkslateblue"
+        //   translucent={true}
+        //   // onTVFocus={()=> {console.warn('focused on tab bar!')}}
+        //   // onTVBlur={()=> {console.warn('blur on tab bar!')}}
+        //   >
+        //   {this.renderTabBarItem("DashboardList","Dashboard")}
+        //   </TabBarIOS>
 
       return (
         <View style={styles.container}>
-          <TabBarIOS
-          unselectedTintColor="white"
-          tintColor="dodgerblue"
-          // barTintColor="darkslateblue"
-          translucent={true}
-          onTVFocus={()=> {console.warn('focused on tab bar!')}}
-          onTVBlur={()=> {console.warn('blur on tab bar!')}}
-          >
-          {this.renderTabBarItem("DashboardList","Dashboard")}
-          </TabBarIOS>
+
+
           <Navigator
-              style={{height:0,marginTop: -800}}
+              style={{height:0, marginTop:0, paddingTop: 0}}
               // configureScene={() => Navigator.SceneConfigs.PushFromRight}
               initialRoute={this.state.route}
               renderScene={this.router}
               // navigationBar={<Navigator.NavigationBar routeMapper={NavigationBarRouteMapper({onMenuOpen:this.handleMenuOpen})} style={styles.navbar}/>}
+              navigationBarHidden={true}
           />
+
        </View>
       );
     } else {

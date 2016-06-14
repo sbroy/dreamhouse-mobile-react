@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5991135B82C8515505DA5B3F9735D55C7D261D9F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5991135B82C8515505DA5B3F9735D55C7D261D9F" : 0,
+    "BC540183505B71FE321C7B82F8E30D050872F7B4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E3707CFE-21B6-4749-9D46-B9CCC925FE26",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5991135B82C8515505DA5B3F9735D55C7D261D9F" : "dreamhouse-mobile-react\/",
+    "BC540183505B71FE321C7B82F8E30D050872F7B4" : "..\/react.force.base.theme"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "dreamhousetv",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "dreamhousetv.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kgowru\/dreamhouse-mobile-react.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5991135B82C8515505DA5B3F9735D55C7D261D9F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kgowru\/react.force.base.theme.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC540183505B71FE321C7B82F8E30D050872F7B4"
+    }
+  ]
+}

@@ -9,10 +9,12 @@ const {
 
 module.exports = StyleSheet.create({
     card: {
-        width: (Dimensions.get("window").width/6),
-        backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        height: (Dimensions.get("window").height/3),
-        margin: 25,
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        // width: (Dimensions.get("window").width/6),
+        // height: (Dimensions.get("window").height/3),
+        // width: 300,
+        // height: 425,
+        margin: 20,
         borderRadius: 5
     },
   container: {
@@ -37,8 +39,9 @@ module.exports = StyleSheet.create({
         marginLeft: 4,
     },
     image: {
-        width: __APPLETV__ ? 250 : 42,
-        height: __APPLETV__ ? 250 : 42,
+        width: __APPLETV__ ? 300 : 42,
+        height: __APPLETV__ ? 300 : 42,
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        resizeMode: 'cover'
     }
 });
