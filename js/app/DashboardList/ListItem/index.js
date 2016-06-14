@@ -35,9 +35,9 @@ module.exports = React.createClass({
 
     render () {
       return (
-          <TouchableHighlight underlayColor={'#dddddd'} onPress={this.handlePress}>
+          <TouchableHighlight underlayColor={'rgba(255,255,255,0)'} onPress={this.handlePress}>
             <Theme.Menus.ActionListItem
-            label={<Text style={{fontSize: 25}}>{this.props.rowData.name}</Text>}
+            label={<Text style={{fontSize: 25, color: 'white'}}>{this.props.rowData.name}</Text>}
               iconType='standard'
               icon='dashboard'
             />

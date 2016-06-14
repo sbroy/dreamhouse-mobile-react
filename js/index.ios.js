@@ -57,4 +57,6 @@ import ReactNative from 'react-native';
 
 import App from './app';
 
+console.disableYellowBox = true;
+
 ReactNative.AppRegistry.registerComponent('dreamhouse', () => App);

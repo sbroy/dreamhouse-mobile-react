@@ -15,7 +15,7 @@ module.exports = StyleSheet.create({
         // width: 300,
         // height: 425,
         margin: 20,
-        borderRadius: 5
+        borderRadius: 10
     },
   container: {
         flex: 1,
@@ -39,8 +39,14 @@ module.exports = StyleSheet.create({
         marginLeft: 4,
     },
     image: {
-        width: __APPLETV__ ? 300 : 42,
+        width: __APPLETV__ ? 298 : 42,
         height: __APPLETV__ ? 300 : 42,
+        // borderRadius: 5,
+        // borderBottomLeftRadius: 0,
+        // borderBottomRightRadius: 0,
+        // borderTopRightRadius: 20,
+        // borderTopLeftRadius: 20,
+
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
         resizeMode: 'cover'
     }

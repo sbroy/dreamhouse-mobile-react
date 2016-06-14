@@ -4,8 +4,8 @@ import React from 'react';
 import ReactNative from 'react-native';
 
 const {
-    // Text,
-    View
+    View,
+    Image
 } = ReactNative;
 
 import styles from './styles';
@@ -46,7 +46,9 @@ module.exports = React.createClass({
     return (
 
       // <Text>{JSON.stringify(this.state.dbListResponse)}</Text>
-      <List dbListResponse = {this.state.dbListResponse} navigator={this.props.navigator} route={this.props.route} style={styles.container}/>
+      <Image source={require('../../../assets/polygonBg.png')} style={{flex: 1, resizeMode: 'cover'}}>
+        <List dbListResponse = {this.state.dbListResponse} navigator={this.props.navigator} route={this.props.route} style={styles.container}/>
+      </Image>
       // <View style={styles.container}>
       //   <Text style={styles.jsonResponse}>
       //     {this.state.dbResponse}

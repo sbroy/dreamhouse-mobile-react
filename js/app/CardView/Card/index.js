@@ -24,7 +24,8 @@ module.exports = React.createClass({
   getInitialState : function(){
     return {
       height: 425,
-      width: 300
+      width: 300,
+      borderOpacity: 0
     }
   },
 
@@ -50,7 +51,11 @@ module.exports = React.createClass({
   },
 
   handleTVFocus(){
-    console.log("card blurred");
+    console.log("card focused");
+
+    this.setState({
+      borderOpacity: 1
+    })
 
     // TODO: Kapil - trying to change card height/width on selection
     // this.setState({
@@ -63,6 +68,9 @@ module.exports = React.createClass({
   handleTVBlur(){
     console.log("card blurred");
 
+    this.setState({
+      borderOpacity: 0
+    })
     // TODO: Kapil - trying to change card height/width on selection
     // this.setState({
     //   height: 425,
@@ -82,15 +90,14 @@ module.exports = React.createClass({
     var dealValue = Accounting.formatMoney(this.props.cardData.aggregates[0].value,options);
 
     return (
-        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={[styles.card, {width: this.state.width, height: this.state.height}]}>
+        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={[styles.card, {width: this.state.width, height: this.state.height, borderWidth:1, borderColor:'white', borderColor:'rgba(255,255,255,' + this.state.borderOpacity + ')'}]}>
            <Theme.Tiles.List
             title={<Text style={{fontSize: 25, color: '#ffffff'}}>{this.props.cardData.label}</Text>}
             detail={<Text style={{fontSize: 30, color: '#ffffff'}}>{dealValue}</Text>}
             image={
               <Image
-                  style={styles.image}
-                  source={{uri: this.context.chatterData.fullEmailPhotoUrl}} />
-              }
+                style={{borderRadius: 10,  width: __APPLETV__ ? 297 : 42, height: __APPLETV__ ? 300 : 42}}
+                source={{uri: this.context.chatterData.fullEmailPhotoUrl}} />}
             />
         </TouchableOpacity>
     )

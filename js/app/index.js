@@ -42,7 +42,7 @@ var {
     StatusBar
 } = ReactNative;
 
-import SideMenu from 'react-native-side-menu';
+// import SideMenu from 'react-native-side-menu';
 
 import routes from './routes';
 
