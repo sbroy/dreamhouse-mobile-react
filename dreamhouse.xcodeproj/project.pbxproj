@@ -5,7 +5,6 @@
 	};
 	objectVersion = 47;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0566338B1D03DE160041B3B4 /* SalesforceDesignSystemIconsAction.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0224C7218E64D878376CA25 /* SalesforceDesignSystemIconsAction.ttf */; };
 		0566338C1D03DE160041B3B4 /* SalesforceDesignSystemIconsCustom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D9FA5C6EB9D4B9185D99A94 /* SalesforceDesignSystemIconsCustom.ttf */; };

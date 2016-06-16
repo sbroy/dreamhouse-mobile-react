@@ -30,6 +30,7 @@ import BrokerDetail from './BrokerDetail';
 import Settings from './Settings';
 import DashboardList from './DashboardList';
 import CardView from './CardView';
+import DetailView from './DetailView';
 
 module.exports = {
   propertyList:{
@@ -81,6 +82,10 @@ module.exports = {
   CardView: {
     name: 'CardView',
     comp: CardView,
+  },
+  DetailView: {
+    name: 'DetailView',
+    comp: DetailView
   }
 };
 

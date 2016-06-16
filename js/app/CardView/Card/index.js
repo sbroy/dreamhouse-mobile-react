@@ -23,8 +23,8 @@ module.exports = React.createClass({
 
   getInitialState : function(){
     return {
-      height: 425,
-      width: 300,
+      height: 360,
+      width: 260,
       borderOpacity: 0
     }
   },
@@ -36,46 +36,31 @@ module.exports = React.createClass({
   handlePress() {
     if(this.props.navigator){
       this.props.navigator.push({
-        name:'UserDetailView',
-        id: this.props.cardData.value
+        name:'DetailView',
+        entityId: this.props.cardData.value
       })
     }
   },
 
- // shouldComponentUpdate(nextProps, nextState, nextContext){
- //    return nextContext.chatterData !== this.context.chatterData;
- //  },
-
-  componentWillReceiveProps: function(nextProps) {
-    this.forceUpdate();
+ shouldComponentUpdate(nextProps, nextState, nextContext){
+    return nextContext.chatterData !== this.context.chatterData ||
+    this.state.borderOpacity !== nextState.borderOpacity;
   },
 
   handleTVFocus(){
-    console.log("card focused");
+    console.log("card#" + this.props.cardData.position + " focused");
 
     this.setState({
       borderOpacity: 1
-    })
-
-    // TODO: Kapil - trying to change card height/width on selection
-    // this.setState({
-    //   height: 450,
-    //   width: 320
-    // });
-
+    });
   },
 
   handleTVBlur(){
-    console.log("card blurred");
+    console.log("card#" + this.props.cardData.position + " blurred");
 
     this.setState({
       borderOpacity: 0
     })
-    // TODO: Kapil - trying to change card height/width on selection
-    // this.setState({
-    //   height: 425,
-    //   width: 300
-    // });
   },
 
   render() {
@@ -90,16 +75,17 @@ module.exports = React.createClass({
     var dealValue = Accounting.formatMoney(this.props.cardData.aggregates[0].value,options);
 
     return (
-        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={[styles.card, {width: this.state.width, height: this.state.height, borderWidth:1, borderColor:'white', borderColor:'rgba(255,255,255,' + this.state.borderOpacity + ')'}]}>
+
+        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={{backgroundColor: 'rgba(0, 0, 0, 0.4)', width: this.state.width, height: this.state.height, borderWidth:1, borderColor:'white', borderColor:'rgba(255,255,255,' + this.state.borderOpacity + ')', shadowColor:'#000000', shadowOpacity:0.5, shadowRadius:8, shadowOffset:{height:7, width:0}}}>
            <Theme.Tiles.List
-            title={<Text style={{fontSize: 25, color: '#ffffff'}}>{this.props.cardData.label}</Text>}
-            detail={<Text style={{fontSize: 30, color: '#ffffff'}}>{dealValue}</Text>}
+            title={<Text style={{fontSize: 25, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{this.props.cardData.label}</Text>}
+            detail={<Text style={{fontSize: 40, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{dealValue}</Text>}
             image={
               <Image
-                style={{borderRadius: 10,  width: __APPLETV__ ? 297 : 42, height: __APPLETV__ ? 300 : 42}}
+                style={{width: __APPLETV__ ? 258 : 42, height: __APPLETV__ ? 225 : 42}}
                 source={{uri: this.context.chatterData.fullEmailPhotoUrl}} />}
             />
         </TouchableOpacity>
-    )
+    );
   }
 })

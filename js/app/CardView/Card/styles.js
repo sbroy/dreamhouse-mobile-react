@@ -9,13 +9,12 @@ const {
 
 module.exports = StyleSheet.create({
     card: {
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
         // width: (Dimensions.get("window").width/6),
         // height: (Dimensions.get("window").height/3),
         // width: 300,
         // height: 425,
-        margin: 20,
-        borderRadius: 10
+        // margin: 10,
+        // borderRadius: 10
     },
   container: {
         flex: 1,

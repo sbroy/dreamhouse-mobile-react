@@ -161,10 +161,8 @@ module.exports = React.createClass({
 
       return (
         <View style={styles.container}>
-
-
           <Navigator
-              style={{height:0, marginTop:0, paddingTop: 0}}
+              // style={{height:0, marginTop:0, paddingTop: 0}}
               // configureScene={() => Navigator.SceneConfigs.PushFromRight}
               initialRoute={this.state.route}
               renderScene={this.router}

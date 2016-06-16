@@ -23,7 +23,7 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 'use strict';
 
 import React from 'react';
@@ -47,7 +47,7 @@ import styles from './styles';
 
 
 module.exports = React.createClass({
-    
+
     getDefaultProps(){
       return {
       }
@@ -101,11 +101,11 @@ module.exports = React.createClass({
       const detail = this.getDetail();
       return (
           <TouchableOpacity onPress={this.handlePress}>
-          <Theme.Tiles.List 
-            title={title} 
+          <Theme.Tiles.List
+            title={title}
             detail={detail}
             image={
-              <Image 
+              <Image
                   style={styles.image}
                   source={{uri: imgConfig.url }} />
               }
