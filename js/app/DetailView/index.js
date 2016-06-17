@@ -13,13 +13,9 @@ import {SobjContainer} from 'react.force.datacontainer';
 import ContainerView from './View';
 
 module.exports = React.createClass({
-  getDefaultProps(){
-
-  },
-
   render(){
     return(
-      <SobjContainer key={this.props.route.entityId} type={this.props.route.entityType}>
+      <SobjContainer key={this.props.route.entityId} type={this.props.route.entityType} id={this.props.route.entityId}>
         <ContainerView route={this.props.route} navigator={this.props.navigator}/>
       </SobjContainer>
     )

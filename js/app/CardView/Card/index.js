@@ -30,21 +30,27 @@ module.exports = React.createClass({
   },
 
   contextTypes: {
-    chatterData: React.PropTypes.object
+    chatterData: React.PropTypes.object,
+    componentData: React.PropTypes.object
   },
 
   handlePress() {
     if(this.props.navigator){
       this.props.navigator.push({
         name:'DetailView',
-        entityId: this.props.cardData.value
+        entityId: this.props.cardData.value,
+        entityType: this.props.cardType,
+        index: this.props.cardData.position,
+        chatterData: this.context.chatterData,
+        componentData: this.context.componentData
       })
     }
   },
 
  shouldComponentUpdate(nextProps, nextState, nextContext){
-    return nextContext.chatterData !== this.context.chatterData ||
-    this.state.borderOpacity !== nextState.borderOpacity;
+    return true;
+    // return nextContext.chatterData !== this.context.chatterData ||
+    // this.state.borderOpacity !== nextState.borderOpacity;
   },
 
   handleTVFocus(){
@@ -76,14 +82,17 @@ module.exports = React.createClass({
 
     return (
 
-        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={{backgroundColor: 'rgba(0, 0, 0, 0.4)', width: this.state.width, height: this.state.height, borderWidth:1, borderColor:'white', borderColor:'rgba(255,255,255,' + this.state.borderOpacity + ')', shadowColor:'#000000', shadowOpacity:0.5, shadowRadius:8, shadowOffset:{height:7, width:0}}}>
+        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={{backgroundColor: 'rgba(0, 0, 0, 0.4)', width: this.state.width, height: this.state.height, borderWidth:1, borderColor:'rgba(255,255,255,' + this.state.borderOpacity + ')', shadowColor:'#000000', shadowOpacity:0.5, shadowRadius:8, shadowOffset:{height:7, width:0}}}>
            <Theme.Tiles.List
             title={<Text style={{fontSize: 25, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{this.props.cardData.label}</Text>}
             detail={<Text style={{fontSize: 40, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{dealValue}</Text>}
             image={
               <Image
                 style={{width: __APPLETV__ ? 258 : 42, height: __APPLETV__ ? 225 : 42}}
-                source={{uri: this.context.chatterData.fullEmailPhotoUrl}} />}
+                source={{uri: this.context.chatterData.fullEmailPhotoUrl}}
+                >
+                <View style={{position:'absolute', left: 10, width:50, height:70, backgroundColor:'rgba(59,173,193,0.8)', flex: 1, flexDirection:'column', alignItems:'center', justifyContent:'center'}}><Text style={{ fontSize:35, color:'white', fontFamily: 'SalesforceSans-Bold', textAlign:'justify', marginLeft:-5}}> {this.props.cardData.position}</Text></View>
+                </Image>}
             />
         </TouchableOpacity>
     );

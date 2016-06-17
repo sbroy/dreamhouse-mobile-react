@@ -11,7 +11,8 @@ const {
     StyleSheet,
     TouchableOpacity,
     Dimensions,
-    TouchableHighlight
+    TouchableHighlight,
+    ScrollView
 } = ReactNative;
 
 // import SLDS from 'design-system-react-native';
@@ -35,69 +36,38 @@ var styles = StyleSheet.create({
   }
 });
 
+let x = 1;
+
 module.exports = React.createClass({
-  getDataSource (){
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    // var groupings = [],
-    //     factMap = {},
-    //     dbDataList = [];
-    // if(this.props && this.props.componentData && this.props.componentData.reportResult){
 
-    //   groupings = this.props.componentData.reportResult.groupingsDown.groupings;
-    //   factMap = this.props.componentData.reportResult.factMap;
-
-    //   dbDataList = groupings.map(function(grouping){
-    //     return Object.assign(grouping, factMap[grouping.key + '!T']);
-    //   });
-    // }
-    // dbDataList = dbDataList.slice(0,11);
-    // debugger;
-
-    return ds.cloneWithRows(this.props.viewList);
+  contextTypes: {
+    dataSource: React.PropTypes.object
   },
 
   renderRow (cardData) {
     var cardComponent;
 
+    console.log((x++) + "/" + JSON.stringify(cardData));
+
     //add other cases here for our supported types
     switch(cardData.value.substring(0,3)){
       case '005':
-       // cardComponent = (
-       //    <Card cardData={cardData} type='user' navigator={this.props.navigator} route={this.props.route}/>
-       //    );
-
-        cardComponent = (<ChatterUserContainer  key={cardData.value} style={{height:425, width:300, margin:10}} type='user' id={cardData.value}>
-          <Card cardData={cardData} type='user' navigator={this.props.navigator} route={this.props.route}/>
-          </ChatterUserContainer>);
-        // cardComponent =  (<TouchableHighlight underlayColor={'rgba(255,255,255,0)'} style={{height:300, width:500}} onPress={()=> {console.log('wtf')}} >
-        //     <Theme.Menus.ActionListItem
-        //     label={<Text style={{fontSize: 25, color: 'white'}}>{cardData.label}</Text>}
-        //       iconType='standard'
-        //       icon='dashboard'
-        //     />
-        // </TouchableHighlight>);
+        cardComponent = (
+          <ChatterUserContainer  key={cardData.key} style={{height:425, width:300, margin:10}} type='user' id={cardData.value}>
+            <Card cardData={cardData} cardType={'user'} navigator={this.props.navigator} route={this.props.route}/>
+          </ChatterUserContainer>
+          );
         break;
-
-
-      // case '005': /**cardData={cardData}**/
-      // cardComponent = (<SobjContainer key={cardData.value} type='user' id={cardData.value}>
-      //   <Card cardData={cardData} navigator={this.props.navigator} route={this.props.route}/>
-      // </SobjContainer>);
-      // break;
     }
 
     return cardComponent;
   },
 
-  // componentDidReceiveProps () {
-
-  // },
-
   render() {
     return (
-      <ListView contentContainerStyle={{flexDirection:'row', flexWrap: 'wrap', flex: 1}}
+      <ListView contentContainerStyle={{flexDirection:'row', flexWrap: 'wrap', flex: 1, height:900, width:1740}}
           horizontal={true}
-          dataSource={this.getDataSource()}
+          dataSource={this.context.dataSource}
           renderRow={this.renderRow} />
     )
   }
