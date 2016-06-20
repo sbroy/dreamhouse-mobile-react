@@ -11,7 +11,8 @@ const {
     TouchableHighlight,
     TouchableOpacity,
     Animated,
-    ListView
+    ListView,
+    InteractionManager
 } = ReactNative;
 
 import CardView from './View';
@@ -112,7 +113,9 @@ module.exports = React.createClass({
   },
 
   componentDidMount(){
-    this.getDashboardData();
+    InteractionManager.runAfterInteractions(() => {
+      this.getDashboardData();
+    });
   },
 
   componentDidUpdate(){
