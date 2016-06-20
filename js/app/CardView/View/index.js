@@ -49,6 +49,7 @@ module.exports = React.createClass({
     console.log((x++) + "/" + JSON.stringify(cardData));
 
     //add other cases here for our supported types
+    debugger;
     switch(cardData.value.substring(0,3)){
       case '005':
         cardComponent = (
