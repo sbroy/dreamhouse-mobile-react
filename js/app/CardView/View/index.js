@@ -43,7 +43,6 @@ module.exports = React.createClass({
   contextTypes: {
     dataSource: React.PropTypes.object
   },
-
   renderRow (cardData) {
     var cardComponent;
 
@@ -65,7 +64,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <ListView contentContainerStyle={{flexDirection:'row', flexWrap: 'wrap', flex: 1, height:900, width:1740}}
+      <ListView contentContainerStyle={{flexDirection:'row', flexWrap: 'wrap', flex: 1, height:870, width:1660}}
           horizontal={true}
           dataSource={this.context.dataSource}
           renderRow={this.renderRow} />

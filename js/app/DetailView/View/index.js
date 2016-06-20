@@ -14,8 +14,12 @@ import {CompactLayout} from 'react.force.layout';
 import ReportLView from '../../ReportListView';
 
 module.exports = React.createClass({
-  getDefaultProps(){
 
+  getInitialState(){
+    return{
+      numOfEntities: 0,
+      sumOfEntities: 0
+    }
   },
 
   contextTypes: {
@@ -31,6 +35,13 @@ module.exports = React.createClass({
     console.log("tapped compact layout");
   },
 
+  setReportFacts(numOfEntities, sumOfEntities){
+    this.setState({
+      numOfEntities: numOfEntities,
+      sumOfEntities: sumOfEntities
+    })
+  },
+
   render(){
 //TODO : Kapil - abstract for different entities
     return(
@@ -39,9 +50,9 @@ module.exports = React.createClass({
           <View style={{flex:1, borderWidth:0, alignItems:'center', borderColor:'blue'}}>
             {/* empty area for profile picture*/}
           </View>
-          <View style={{flex:3, borderWidth:0, alignItems:'stretch', flexDirection:'row', justifyContent:'flex-end', borderColor:'green', marginLeft:-100, paddingBottom:50}}>
+          <View style={{flex:3, borderWidth:0, alignItems:'stretch', flexDirection:'row', justifyContent:'flex-end', borderColor:'green', paddingLeft:-100, paddingBottom:50}}>
             <View style={{flex:1, alignItems:'flex-start', justifyContent:'flex-end'}}>
-              <Text style={{fontSize:160, fontFamily:'SalesforceSans-Light', color:'#829CBA'}}>{this.props.route.index}</Text>
+              <Text style={{fontSize:160, justifyContent:'flex-end', fontFamily:'SalesforceSans-Light', color:'#829CBA'}}>{this.props.route.index}</Text>
             </View>
             <View style={{flex:6, alignItems:'flex-start', justifyContent:'flex-end'}}>
               <Text style={{fontSize:55, fontFamily:'SalesforceSans-Regular', color:'white'}}>{this.context.sobj.Name}</Text>
@@ -59,12 +70,12 @@ module.exports = React.createClass({
           </View>
           <View style={{flex:3, borderWidth:0, borderColor:'green', flexDirection:'column', alignItems:'stretch', paddingLeft:100, paddingTop:50}}>
             <Text style={{fontSize:25, fontFamily:'SalesforceSans-Regular', color:'#829CBA', paddingBottom:20}}>RECENTLY CLOSED OPPORTUNITIES</Text>
-            <ReportLView reportId={this.props.route.componentData.reportResult.reportMetadata.id} index={this.props.route.index}/>
+            <ReportLView reportId={this.props.route.componentData.reportResult.reportMetadata.id} index={this.props.route.index} handleReportFacts={this.setReportFacts}/>
           </View>
           <View style={{flex:1, flexDirection:'column', alignItems: 'stretch', paddingTop:50}}>
             <Text style={{fontSize:25, fontFamily:'SalesforceSans-Regular', color:'#829CBA', paddingBottom:20, justifyContent:'flex-end'}}>SUMMARY</Text>
-            <Text style={{fontSize:30, fontFamily:'SalesforceSans-Regular', color:'white'}}>8 opportunities closed</Text>
-            <Text style={{fontSize:30, fontFamily:'SalesforceSans-Regular', color:'white'}}>$500k closed</Text>
+            <Text style={{fontSize:30, fontFamily:'SalesforceSans-Regular', color:'white', paddingBottom:20}}>8 opportunities closed</Text>
+            <Text style={{fontSize:30, fontFamily:'SalesforceSans-Regular', color:'white', paddingBottom:20}}>$500k closed</Text>
           </View>
         </View>
       </Image>

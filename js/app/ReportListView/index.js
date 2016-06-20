@@ -35,7 +35,9 @@ module.exports = React.createClass({
         if(response){
           let groupings = response.groupingsDown.groupings,
               factMap = response.factMap,
-              dataSource;
+              dataSource,
+              sumOfEntities;
+
           console.log("****REPORTRESPONSE: " + JSON.stringify(response));
           dataSource = groupings.map(function(grouping, index){
             let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
@@ -49,7 +51,15 @@ module.exports = React.createClass({
             reportApiResponse: response,
             detailColumnMap : response.reportMetadata.detailColumns,
             dataSource: this.getDataSource(dataSource[this.props.index-1].rows)
-          })
+          });
+
+          let detailDataSource = dataSource[this.props.index-1].rows;
+          detailDataSource.forEach(function(detail){
+            debugger;
+          });
+
+          // this.props.handleReportFacts(detailDataSource.length, detailDataSource.
+
         }
       },
       (error)=> {

@@ -21,7 +21,7 @@ module.exports = React.createClass({
     }
   },
 
-  getInitialState : function(){
+  getInitialState (){
     return {
       height: 360,
       width: 260,
