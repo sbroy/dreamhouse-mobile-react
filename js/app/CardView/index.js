@@ -91,6 +91,7 @@ module.exports = React.createClass({
   },
 
   handleBack(){
+    console.log('handle back');
     let prevPageIndex = this.state.pageIndex <= 0 ? 0 : this.state.pageIndex - 1;
 
     this.setState({
@@ -100,6 +101,8 @@ module.exports = React.createClass({
   },
 
   handleForward(){
+    console.log('handle forward');
+
     let nextPageIndex = this.state.pageIndex >= this.state.numOfPages -1 ? this.state.pageIndex : this.state.pageIndex + 1;
 
     this.setState({
@@ -129,17 +132,17 @@ module.exports = React.createClass({
         </View>
         <View style={{flexDirection: 'row', alignSelf:'center', marginBottom:30}}>
           {/* hidden touchable element here that handles moving to card view*/}
-          <TouchableHighlight underlayColor={'rgba(0,0,0,0.4)'} style={{justifyContent:'center', width:90}} onPress={this.handleBack}>
-            <Text style={{color:'white', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'<'} </Text>
+          <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:90}} onPress={()=>{return;}} onTVFocus={this.handleBack}>
+            <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'<'} </Text>
           </TouchableHighlight>
 
-          <View style={{width:1740, height:900, alignItems: 'center', paddingLeft:80, paddingTop:30 }}>
+          <View style={{width:1740, height:900, alignItems: 'center' }}>
            <CardView navigator={this.props.navigator} route={this.props.route} />
           </View>
 
 
-          <TouchableHighlight underlayColor={'rgba(0,0,0,0.5)'} style={{justifyContent:'center', width:90}} onPress={this.handleForward}>
-            <Text style={{color:'white', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'>'} </Text>
+          <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:90}} onPress={()=>{return;}} onTVFocus={this.handleForward}>
+            <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'>'} </Text>
           </TouchableHighlight>
         </View>
 

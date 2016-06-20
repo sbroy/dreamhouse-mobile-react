@@ -25,7 +25,6 @@ module.exports = React.createClass({
     return {
       height: 360,
       width: 260,
-      borderOpacity: 0
     }
   },
 
@@ -53,21 +52,6 @@ module.exports = React.createClass({
     // this.state.borderOpacity !== nextState.borderOpacity;
   },
 
-  handleTVFocus(){
-    console.log("card#" + this.props.cardData.position + " focused");
-
-    this.setState({
-      borderOpacity: 1
-    });
-  },
-
-  handleTVBlur(){
-    console.log("card#" + this.props.cardData.position + " blurred");
-
-    this.setState({
-      borderOpacity: 0
-    })
-  },
 
   render() {
     var options = {
@@ -82,7 +66,7 @@ module.exports = React.createClass({
 
     return (
 
-        <TouchableOpacity onPress={this.handlePress} onTVFocus = {this.handleTVFocus} onTVBlur = {this.handleTVBlur} style={{backgroundColor: 'rgba(0, 0, 0, 0.4)', width: this.state.width, height: this.state.height, borderWidth:1, borderColor:'rgba(255,255,255,' + this.state.borderOpacity + ')', shadowColor:'#000000', shadowOpacity:0.5, shadowRadius:8, shadowOffset:{height:7, width:0}}}>
+        <TouchableOpacity onPress={this.handlePress} style={{backgroundColor: 'rgba(0, 0, 0, 0.4)', width: this.state.width, height: this.state.height, shadowColor:'#000000', shadowOpacity:0.5, shadowRadius:8, shadowOffset:{height:7, width:0}}}>
            <Theme.Tiles.List
             title={<Text style={{fontSize: 25, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{this.props.cardData.label}</Text>}
             detail={<Text style={{fontSize: 40, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{dealValue}</Text>}

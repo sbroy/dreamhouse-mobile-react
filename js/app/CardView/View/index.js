@@ -65,7 +65,7 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <ListView contentContainerStyle={{flexDirection:'row', flexWrap: 'wrap', flex: 1, height:870, width:1660}}
+      <ListView contentContainerStyle={{flexDirection:'row', flexWrap: 'wrap', flex: 1, marginLeft:80, marginTop:30}}
           horizontal={true}
           dataSource={this.context.dataSource}
           renderRow={this.renderRow} />
