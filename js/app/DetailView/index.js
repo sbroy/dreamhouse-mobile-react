@@ -15,8 +15,8 @@ import ContainerView from './View';
 module.exports = React.createClass({
   render(){
     return(
-      <SobjContainer key={this.props.route.entityId} type={this.props.route.entityType} id={this.props.route.entityId}>
-        <ContainerView route={this.props.route} navigator={this.props.navigator}/>
+      <SobjContainer key={this.props.entityId} type={this.props.entityType} id={this.props.entityId}>
+        <ContainerView navigator={this.props.navigator} chatterData={this.props.chatterData} index={this.props.index} componentData={this.props.componentData} entityId={this.props.entityId}/>
       </SobjContainer>
     )
   }

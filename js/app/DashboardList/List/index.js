@@ -28,7 +28,7 @@ module.exports = React.createClass({
   },
   renderRow (rowData) {
     return (
-      <DashboardListItem rowData = {rowData} navigator={this.props.navigator} route={this.props.route}/>
+      <DashboardListItem rowData = {rowData} navigator={this.props.navigator} routes={this.props.routes}/>
     );
   },
 

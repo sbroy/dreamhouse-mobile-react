@@ -26,10 +26,10 @@
 
 'use strict';
 
-var React = require('react');
-var ReactNative = require('react-native');
+import React from 'react';
+import ReactNative from 'react-native';
 
-var {
+const {
     AppRegistry,
     StyleSheet,
     Text,
@@ -37,12 +37,12 @@ var {
     ListView,
     PixelRatio,
     Navigator,
+    NavigatorIOS,
     TabBarIOS,
     TouchableOpacity,
-    StatusBar
+    StatusBar,
+    SideMenu
 } = ReactNative;
-
-// import SideMenu from 'react-native-side-menu';
 
 import routes from './routes';
 
@@ -52,12 +52,7 @@ import styles from './styles';
 
 import MainMenu from './MainMenu';
 
-
-
 import NavigationBarRouteMapper from './NavBar/mapper';
-
-// import {QueryCounter} from 'react.force.data';
-
 
 module.exports = React.createClass({
 
@@ -103,12 +98,6 @@ module.exports = React.createClass({
       );
     }
     console.warn('no route exists');
-    // return (
-    //   <View style={styles.page}>
-    //     <initialRoute.comp route={route} navigator={navigator}/>
-    //   </View>
-
-    // );
   },
 
   handleMenuOpen(){
@@ -135,7 +124,6 @@ module.exports = React.createClass({
              title={title}
              selected={this.state.route.name === name}
              onPress={() => this.changeRoute(this.state.route,routes[name])}
-             // onTVFocus={() => {console.warn("FOCUS")}}
              >
              <Text></Text>
           </TabBarIOS.Item>
@@ -143,33 +131,20 @@ module.exports = React.createClass({
   },
 //////////
 
-
   render() {
     if(__APPLETV__) {
-        // // {this.router(this.state.route,this.state.navigator)}
-        //  <TabBarIOS
-        //   style={{height:0}}
-        //   unselectedTintColor="white"
-        //   tintColor="dodgerblue"
-        //   // barTintColor="darkslateblue"
-        //   translucent={true}
-        //   // onTVFocus={()=> {console.warn('focused on tab bar!')}}
-        //   // onTVBlur={()=> {console.warn('blur on tab bar!')}}
-        //   >
-        //   {this.renderTabBarItem("DashboardList","Dashboard")}
-        //   </TabBarIOS>
-
       return (
         <View style={styles.container}>
-          <Navigator
-              // style={{height:0, marginTop:0, paddingTop: 0}}
-              // configureScene={() => Navigator.SceneConfigs.PushFromRight}
-              initialRoute={this.state.route}
-              renderScene={this.router}
-              // navigationBar={<Navigator.NavigationBar routeMapper={NavigationBarRouteMapper({onMenuOpen:this.handleMenuOpen})} style={styles.navbar}/>}
-              navigationBarHidden={true}
-          />
-
+          <NavigatorIOS
+            style={styles.container}
+            initialRoute={{
+              component : routes['DashboardList'].comp,
+              passProps: {
+                routes: routes
+              }
+            }}
+            navigationBarHidden={true}
+            />
        </View>
       );
     } else {
@@ -184,10 +159,6 @@ module.exports = React.createClass({
             renderScene={this.router}
             navigationBar={<Navigator.NavigationBar routeMapper={NavigationBarRouteMapper({onMenuOpen:this.handleMenuOpen})} style={styles.navbar}/>}
         />
-{/*
-        <QueryCounter />
-*/}
-
       </SideMenu>
       );
     }

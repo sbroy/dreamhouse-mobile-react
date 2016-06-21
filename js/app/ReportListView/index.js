@@ -17,6 +17,10 @@ import ListItem from './ListItem';
 
 module.exports = React.createClass({
 
+  contextTypes: {
+    sobj: React.PropTypes.object,
+  },
+
   getInitialState(){
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
@@ -43,20 +47,21 @@ module.exports = React.createClass({
             let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
             mappedObject.position = grouping.key;
             return mappedObject;
-          }).sort(function(a,b){
-            return a.position - b.position;
-          });
+          }).find(function(dataBlob){
+            return dataBlob.value === this.props.entityId;
+          }.bind(this));
 
+          debugger;
           this.setState({
             reportApiResponse: response,
             detailColumnMap : response.reportMetadata.detailColumns,
-            dataSource: this.getDataSource(dataSource[this.props.index-1].rows)
+            dataSource: this.getDataSource(dataSource.rows)
           });
 
-          let detailDataSource = dataSource[this.props.index-1].rows;
-          detailDataSource.forEach(function(detail){
-            debugger;
-          });
+          // let detailDataSource = dataSource[this.props.index-1].rows;
+          // detailDataSource.forEach(function(detail){
+          //   debugger;
+          // });
 
           // this.props.handleReportFacts(detailDataSource.length, detailDataSource.
 

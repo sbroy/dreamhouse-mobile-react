@@ -24,10 +24,13 @@ module.exports = React.createClass({
       if(!clickedAt || clickedAtNow - clickedAt > 1000)
         if(this.props.navigator){
           this.props.navigator.push({
-            name:'CardView',
-            dbName: this.props.rowData.name,
-            dbId: this.props.rowData.id,
-            label: this.props.rowData.name
+            component: this.props.routes['CardView'].comp,
+            passProps: {
+              dbName: this.props.rowData.name,
+              dbId: this.props.rowData.id,
+              label: this.props.rowData.name,
+              routes: this.props.routes
+            }
           });
         }
         clickedAt = new Date().getTime();

@@ -36,22 +36,21 @@ module.exports = React.createClass({
   handlePress() {
     if(this.props.navigator){
       this.props.navigator.push({
-        name:'DetailView',
-        entityId: this.props.cardData.value,
-        entityType: this.props.cardType,
-        index: this.props.cardData.position,
-        chatterData: this.context.chatterData,
-        componentData: this.context.componentData
+        component: this.props.routes['DetailView'].comp,
+        passProps: {
+          entityId: this.props.cardData.value,
+          entityType: this.props.cardType,
+          index: this.props.cardData.position,
+          chatterData: this.context.chatterData,
+          componentData: this.context.componentData
+        }
       })
     }
   },
 
  shouldComponentUpdate(nextProps, nextState, nextContext){
     return true;
-    // return nextContext.chatterData !== this.context.chatterData ||
-    // this.state.borderOpacity !== nextState.borderOpacity;
   },
-
 
   render() {
     var options = {

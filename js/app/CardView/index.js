@@ -57,7 +57,7 @@ module.exports = React.createClass({
   },
 
   getDashboardData(){
-    forceClient.dashboardData(this.props.route.dbId,
+    forceClient.dashboardData(this.props.dbId,
       (response) => {
         if(response){
           let groupings = [],
@@ -128,7 +128,7 @@ module.exports = React.createClass({
   render() {
     return (
       <Image source={require('../../../assets/polygonBg.png')} style={{flexDirection: 'column', alignItems: 'center', flex: 1, resizeMode: 'cover'}}>
-        <View style={{flexDirection: 'row', alignSelf: 'flex-start', paddingTop: 20, height: 100, width: 1920}}>
+        <View style={{flexDirection: 'row', alignSelf: 'flex-start', paddingTop: 20, height: 100, width: 1920, backgroundColor: 'rgba(0,0,0,0)'}}>
           <Text style={{fontSize: 60, color:'white', fontFamily: 'SalesforceSans-Light', paddingLeft:80}}>{this.state.title}</Text>
           <Text style={{fontSize: 25, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:20, paddingTop:35}}>{this.state.subtitle}</Text>
           <Image style={{position:'absolute', top:50, right: 50}} source={require('../../../assets/salesforceLogo.png')}/>
@@ -140,9 +140,8 @@ module.exports = React.createClass({
           </TouchableHighlight>
 
           <View style={{width:1740, height:900, alignItems: 'center' }}>
-           <CardView navigator={this.props.navigator} route={this.props.route} />
+           <CardView navigator={this.props.navigator} routes={this.props.routes} />
           </View>
-
 
           <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:90}} onPress={()=>{return;}} onTVFocus={this.handleForward}>
             <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'>'} </Text>

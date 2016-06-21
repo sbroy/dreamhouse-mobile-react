@@ -44,16 +44,9 @@ module.exports = React.createClass({
 
   render(){
     return (
-
-      // <Text>{JSON.stringify(this.state.dbListResponse)}</Text>
       <Image source={require('../../../assets/polygonBg.png')} style={{flex: 1, resizeMode: 'cover'}}>
-        <List dbListResponse = {this.state.dbListResponse} navigator={this.props.navigator} route={this.props.route} style={styles.container}/>
+        <List dbListResponse = {this.state.dbListResponse} navigator={this.props.navigator} routes={this.props.routes} style={styles.container}/>
       </Image>
-      // <View style={styles.container}>
-      //   <Text style={styles.jsonResponse}>
-      //     {this.state.dbResponse}
-      //   </Text>
-      // </View>
     );
   }
 })

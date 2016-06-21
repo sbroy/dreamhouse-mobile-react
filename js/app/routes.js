@@ -81,7 +81,7 @@ module.exports = {
   },
   CardView: {
     name: 'CardView',
-    comp: CardView,
+    comp: CardView
   },
   DetailView: {
     name: 'DetailView',
