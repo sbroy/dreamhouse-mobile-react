@@ -88,6 +88,7 @@ module.exports = React.createClass({
      //console.log(this.props.detailData);
 
      console.log(this.props.title);
+     console.log(this.props.focusedVal);
      var height = Dimensions.get('window').height; //1000
      var rankFont = (Dimensions.get('window').height)*(150/1080);
      var nameFont = (Dimensions.get('window').height)*(60/1080);

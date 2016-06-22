@@ -16,7 +16,6 @@ import {forceClient} from 'react.force';
 
 import ListItem from './ListItem';
 
-var numDeals, dataSourceInd;
 module.exports = React.createClass({
 
   contextTypes: {
@@ -36,7 +35,7 @@ module.exports = React.createClass({
   },
 
   getReportData(){
-    console.log('in report data');
+    console.log(this.props.entityId);
     forceClient.reportData(this.props.reportId,
       (response)=>{
         if(response){
@@ -54,21 +53,12 @@ module.exports = React.createClass({
             return dataBlob.value === this.props.entityId;
           }.bind(this));
 
-          for (var i = 0; i < dataSource.length; i++) {
-            if (dataSource[i].value === this.props.sobjId) {
-              dataSourceInd = i;
-            }
-          }
-
           this.setState({
             reportApiResponse: response,
             detailColumnMap : response.reportMetadata.detailColumns,
             dataSource: this.getDataSource(dataSource.rows)
           });
 
-          numDeals = dataSource[dataSourceInd].rows.length;
-          console.log(numDeals);
-          this.props.callback(numDeals);
           // let detailDataSource = dataSource[this.props.index-1].rows;
           // detailDataSource.forEach(function(detail){
           //   debugger;
@@ -82,6 +72,10 @@ module.exports = React.createClass({
         console.warn(error);
       }
     );
+  },
+
+  componentWillReceiveProps() {
+    this.getReportData();
   },
 
   componentDidMount(){

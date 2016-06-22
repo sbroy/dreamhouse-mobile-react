@@ -35,19 +35,14 @@ module.exports = React.createClass({
     };
 
     var dealValue = Accounting.formatMoney(details["AMOUNT"].label,options);
-    
+
     return(
-        {/*<Theme.Menus.ActionListItem
+        <Theme.Menus.ActionListItem
             label={<Text style={{fontSize: 25, color: 'white'}}>{details["OPPORTUNITY_NAME"].label}</Text>}
               iconType='standard'
               icon='dashboard'
-        />*/}
-
-        <View style={{flexDirection: 'row', paddingBottom: 20}}>
-          <Text style={{fontSize: 30, color:'#ffffff', fontFamily: 'SalesforceSans-Regular', flex: 2.5}}>{details["OPPORTUNITY_NAME"].label}</Text>
-          <Text style={{fontSize: 30, color:'#ffffff', fontFamily: 'SalesforceSans-Regular', flex: 1, textAlign: 'right'}}>{dealValue}</Text>
-      </View>
-        
+        />
     )
   }
 });
+
