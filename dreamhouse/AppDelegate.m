@@ -248,13 +248,16 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
     
 #if TARGET_OS_TV
      NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%@/index.ios.bundle?platform=ios&dev=true&appletv=true",@"8081"]];
+    
 #else
     NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%@/index.ios.bundle?platform=ios&dev=true",@"8081"]];
 #endif
     
 #else
 
- NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+   // NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://kapil-gowru-ltm.internal.salesforce.com:%@/index.ios.bundle?platform=ios&appletv=true",@"8081"]];
+
+    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
 #endif
  
