@@ -15,6 +15,7 @@ import {forceClient} from 'react.force';
 
 import ListItem from './ListItem';
 
+var numDeals, dataSourceInd;
 module.exports = React.createClass({
 
   contextTypes: {
@@ -52,13 +53,21 @@ module.exports = React.createClass({
             return dataBlob.value === this.props.entityId;
           }.bind(this));
 
-          debugger;
+          for (var i = 0; i < dataSource.length; i++) {
+            if (dataSource[i].value === this.props.sobjId) {
+              dataSourceInd = i;
+            }
+          }
+
           this.setState({
             reportApiResponse: response,
             detailColumnMap : response.reportMetadata.detailColumns,
             dataSource: this.getDataSource(dataSource.rows)
           });
 
+          numDeals = dataSource[dataSourceInd].rows.length;
+          console.log(numDeals);
+          this.props.callback(numDeals);
           // let detailDataSource = dataSource[this.props.index-1].rows;
           // detailDataSource.forEach(function(detail){
           //   debugger;
@@ -74,6 +83,10 @@ module.exports = React.createClass({
     );
   },
 
+  componentDidMount(){
+    this.getReportData();
+  },
+
   renderRow (rowData, sectionID, rowID){
     return (
       <ListItem key={sectionID + rowID} rowData={rowData} detailColumnMap={this.state.detailColumnMap}/>
@@ -81,7 +94,6 @@ module.exports = React.createClass({
   },
 
   render(){
-    this.getReportData();
     return(
       <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap', marginRight:100}}
         dataSource={this.state.dataSource}

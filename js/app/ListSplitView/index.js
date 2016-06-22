@@ -58,7 +58,6 @@ module.exports = React.createClass({
     console.log('in dashboardData');
     forceClient.dashboardData(this.props.dbId,
       (response) => {
-        debugger;
         console.log(response);
         if(response){
           this.setState({
@@ -106,7 +105,7 @@ module.exports = React.createClass({
           fontColor: value3,
           title: value4
         },function() {
-          console.log('CallbackOrig ' + this.state.fontColor);
+          //console.log('CallbackOrig ' + this.state.fontColor);
           this.forceUpdate();
         });
   },
@@ -120,19 +119,16 @@ module.exports = React.createClass({
     var titleFont = (Dimensions.get('window').height)*(57/1080);
     var headingFont = (Dimensions.get('window').height)*(25/1080);
 
-    console.log('in main render');
-    console.log(this.state.fontColor);
-  
      return (
 
         <Image source={require('../../../assets/polygonBg.png')} style={[styles.backgroundImage, {flexDirection: 'column', alignItems: 'center'}]}>
           
-          <View style={{flexDirection: 'row', alignSelf: 'flex-start', width: widthLeft}}>
+          <View style={{flexDirection: 'row', alignSelf: 'flex-start', width: widthLeft, backgroundColor: 'rgba(0,0,0,0)'}}>
             
             <View style={{flexDirection: 'column', alignSelf: 'flex-start', marginTop: 60, height: height, width: widthLeft}}>
               
               <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 80, width: widthLeft}}>
-                <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{'Leaderboard'}</Text>
+                <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{'Leaderboard'}</Text>
                 <Image source={require('../../../assets/salesforceLogo.png')}/>
               </View>
 

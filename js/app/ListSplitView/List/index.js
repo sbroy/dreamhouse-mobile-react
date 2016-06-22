@@ -71,7 +71,6 @@ module.exports = React.createClass({
 
     //<Detail focusedVal = {this.props.focusedVal} rowData={rowData} jsonData = {dbDataObj} type='user' navigator={this.props.navigator} route={this.props.route}/>
     renderRow (rowData) {
-      console.log(rowData.value.substring(0,3));
       var detailComponent;
       switch(rowData.value.substring(0,3)){
         case '005':
@@ -92,7 +91,6 @@ module.exports = React.createClass({
     render () {
       //console.log('ListIndex ' + this.state.ind);
      //console.log(this.context.userData);
-     console.log(this.state.fontColor);
      if(__APPLETV__) {
       return (
         <ListView 

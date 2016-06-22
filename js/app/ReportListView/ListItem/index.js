@@ -30,6 +30,7 @@ module.exports = React.createClass({
               iconType='standard'
               icon='dashboard'
         />
+        
     )
   }
 });

@@ -61,7 +61,6 @@ module.exports = React.createClass({
       var newVal = this.props.rowData.key;
       var cData = this.context.chatterData;
       var fontColor = '#000000';
-      console.log(fontColor);
       if (this.context.sobj !== undefined) {
         sobj = this.context.sobj;
         console.log(sobj);
@@ -88,8 +87,6 @@ module.exports = React.createClass({
     },
     
     render () {
-      console.log(this.props.fontColor);
-      console.log(this.state.fontColor);
       /*console.log('Sobj');
       console.log(this.context.sobj);*/
       var options = {

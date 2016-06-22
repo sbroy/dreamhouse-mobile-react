@@ -60,17 +60,11 @@ module.exports = React.createClass({
       chatterData: React.PropTypes.object
     },
 
-    /*componentDidUpdate() {
-      console.log("focuskey: [" + this.context.focusKey + "]");
-      console.log("Statefocuskey: [" + this.state.focusKey + "]");
-    },*/
 
-    getDealsClosed: function (value) {
-         this.setState({
-          dealsClosed: value
-        },function() {
-          this.forceUpdate();
-        });
+    getDealsClosed: function (dealsClosed) {
+      this.setState({
+        dealsClosed: dealsClosed
+      })
     },
 
     render () {
@@ -139,7 +133,7 @@ module.exports = React.createClass({
 
             <View style={{flexDirection: 'column', paddingLeft: 50, paddingTop: 50}}>
               <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', alignItems: 'center', flex: 1}}>{'RECENTLY CLOSED OPPORTUNITIES'}</Text>
-              
+              <ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} index={rank} handleReportFacts={this.setReportFacts} entityId={this.props.detailData.reportResult.groupingsDown.groupings[this.props.focusedVal].value} callback = {this.getDealsClosed}/>
             </View>
           </View>
         );
