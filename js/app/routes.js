@@ -31,6 +31,8 @@ import Settings from './Settings';
 import DashboardList from './DashboardList';
 import CardView from './CardView';
 import DetailView from './DetailView';
+import ListSplitView from './ListSplitView';
+import DetailListView from './ListSplitView/DetailListView';
 
 module.exports = {
   propertyList:{
@@ -86,6 +88,14 @@ module.exports = {
   DetailView: {
     name: 'DetailView',
     comp: DetailView
+  },
+  ListSplitView: {
+    name: 'ListSplitView',
+    comp: ListSplitView
+  }, 
+  DetailListView: {
+    name: 'DetailListView',
+    comp: DetailListView
   }
 };
 

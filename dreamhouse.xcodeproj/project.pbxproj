@@ -33,6 +33,8 @@
 		81B3C34DD5994C36B98DF56A /* SalesforceDesignSystemIconsCustom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D9FA5C6EB9D4B9185D99A94 /* SalesforceDesignSystemIconsCustom.ttf */; };
 		86B30DF90877446ABB7D35C1 /* libSalesforceBaseTheme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834ACB14DDD4B5A98AD0B47 /* libSalesforceBaseTheme.a */; };
 		D04BA5FC320E4DA78AD7F8FF /* SalesforceDesignSystemIconsUtility.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAEB746FDDEF49409A049542 /* SalesforceDesignSystemIconsUtility.ttf */; };
+		DE0B3CD4AC3448B59E8C9529 /* License-for-SalesforceDesignSystemIcons.txt in Resources */ = {isa = PBXBuildFile; fileRef = 628FF6031AF04EF696CE2853 /* License-for-SalesforceDesignSystemIcons.txt */; };
+		3230B3AA5C8540B89C5DB732 /* License-for-SalesforceSans-font.txt in Resources */ = {isa = PBXBuildFile; fileRef = B187D1E9833F43CBB2ECA599 /* License-for-SalesforceSans-font.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		B0224C7218E64D878376CA25 /* SalesforceDesignSystemIconsAction.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SalesforceDesignSystemIconsAction.ttf; path = node_modules/react.force.base.theme/Fonts/SalesforceDesignSystemIconsAction.ttf; sourceTree = "<group>"; };
 		BAB7429758EC40B2A9370F52 /* SalesforceSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SalesforceSans-Bold.ttf"; path = "node_modules/react.force.base.theme/Fonts/SalesforceSans-Bold.ttf"; sourceTree = "<group>"; };
 		CAEB746FDDEF49409A049542 /* SalesforceDesignSystemIconsUtility.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SalesforceDesignSystemIconsUtility.ttf; path = node_modules/react.force.base.theme/Fonts/SalesforceDesignSystemIconsUtility.ttf; sourceTree = "<group>"; };
+		628FF6031AF04EF696CE2853 /* License-for-SalesforceDesignSystemIcons.txt */ = {isa = PBXFileReference; name = "License-for-SalesforceDesignSystemIcons.txt"; path = "node_modules/react.force.base.theme/Fonts/License-for-SalesforceDesignSystemIcons.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B187D1E9833F43CBB2ECA599 /* License-for-SalesforceSans-font.txt */ = {isa = PBXFileReference; name = "License-for-SalesforceSans-font.txt"; path = "node_modules/react.force.base.theme/Fonts/License-for-SalesforceSans-font.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,8 @@
 				BAB7429758EC40B2A9370F52 /* SalesforceSans-Bold.ttf */,
 				05CED4EADC74493F93525DFF /* SalesforceSans-Light.ttf */,
 				7D695F6FCD7649FF83058D42 /* SalesforceSans-Regular.ttf */,
+				628FF6031AF04EF696CE2853 /* License-for-SalesforceDesignSystemIcons.txt */,
+				B187D1E9833F43CBB2ECA599 /* License-for-SalesforceSans-font.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -298,6 +304,8 @@
 				44062F4DEE7B494EBEB88AB8 /* SalesforceSans-Bold.ttf in Resources */,
 				4BFF499CB7CD47DBB6B504C1 /* SalesforceSans-Light.ttf in Resources */,
 				319016D963754A0781ADBB03 /* SalesforceSans-Regular.ttf in Resources */,
+				DE0B3CD4AC3448B59E8C9529 /* License-for-SalesforceDesignSystemIcons.txt in Resources */,
+				3230B3AA5C8540B89C5DB732 /* License-for-SalesforceSans-font.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

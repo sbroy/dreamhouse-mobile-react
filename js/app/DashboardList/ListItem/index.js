@@ -24,7 +24,7 @@ module.exports = React.createClass({
       if(!clickedAt || clickedAtNow - clickedAt > 1000)
         if(this.props.navigator){
           this.props.navigator.push({
-            component: this.props.routes['CardView'].comp,
+            component: this.props.routes['ListSplitView'].comp,
             passProps: {
               dbName: this.props.rowData.name,
               dbId: this.props.rowData.id,

@@ -34,6 +34,7 @@ module.exports = React.createClass({
   },
 
   getReportData(){
+    console.log('in report data');
     forceClient.reportData(this.props.reportId,
       (response)=>{
         if(response){
@@ -73,10 +74,6 @@ module.exports = React.createClass({
     );
   },
 
-  componentDidMount(){
-    this.getReportData();
-  },
-
   renderRow (rowData, sectionID, rowID){
     return (
       <ListItem key={sectionID + rowID} rowData={rowData} detailColumnMap={this.state.detailColumnMap}/>
@@ -84,6 +81,7 @@ module.exports = React.createClass({
   },
 
   render(){
+    this.getReportData();
     return(
       <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap', marginRight:100}}
         dataSource={this.state.dataSource}
