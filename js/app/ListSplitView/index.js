@@ -10,6 +10,7 @@ const {
     ListView,
     View,
     Dimensions,
+    InteractionManager
 } = ReactNative;
 
 import ListSplitItem from './ListItem';
@@ -95,7 +96,9 @@ module.exports = React.createClass({
   },
 
   componentDidMount(){
-    this.getDashboardData();
+    InteractionManager.runAfterInteractions(() => {
+      this.getDashboardData();
+    });
   },
 
   textOnChange: function (value1, value2, value3, value4) {
@@ -122,11 +125,9 @@ module.exports = React.createClass({
      return (
 
         <Image source={require('../../../assets/polygonBg.png')} style={[styles.backgroundImage, {flexDirection: 'column', alignItems: 'center'}]}>
-          
           <View style={{flexDirection: 'row', alignSelf: 'flex-start', width: widthLeft, backgroundColor: 'rgba(0,0,0,0)'}}>
             
-            <View style={{flexDirection: 'column', alignSelf: 'flex-start', marginTop: 60, height: height, width: widthLeft}}>
-              
+            <View style={{flexDirection: 'column', alignSelf: 'flex-start', marginTop: 60, height: height, width: widthLeft}}>  
               <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 80, width: widthLeft}}>
                 <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{'Leaderboard'}</Text>
                 <Image source={require('../../../assets/salesforceLogo.png')}/>
@@ -142,7 +143,6 @@ module.exports = React.createClass({
               </View>
 
               <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} route={this.props.route}/>
-            
             </View>
           
     

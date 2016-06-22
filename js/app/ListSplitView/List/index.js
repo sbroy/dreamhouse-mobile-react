@@ -68,8 +68,6 @@ module.exports = React.createClass({
          
     },
 
-
-    //<Detail focusedVal = {this.props.focusedVal} rowData={rowData} jsonData = {dbDataObj} type='user' navigator={this.props.navigator} route={this.props.route}/>
     renderRow (rowData) {
       var detailComponent;
       switch(rowData.value.substring(0,3)){
@@ -84,8 +82,6 @@ module.exports = React.createClass({
           break;
       }
       return detailComponent;
-      
-        
     },
 
     render () {

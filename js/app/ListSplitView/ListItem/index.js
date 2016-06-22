@@ -72,15 +72,6 @@ module.exports = React.createClass({
       this.props.callback(newVal, cData, fontColor, title);
     },
 
-    /*componentDidMount(){
-      this.setInitialFocus();
-    },*/
-
-    setInitialFocus() {
-      var cData = this.context.chatterData;
-      this.props.callback('0', cData, this.state.fontColor, this.state.title);
-    },
-
     shouldComponentUpdate (nextProps,nextState,nextContext) {
       //return nextContext.userData != this.context.userData;
       return true;

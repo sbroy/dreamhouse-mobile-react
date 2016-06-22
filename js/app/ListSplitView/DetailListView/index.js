@@ -88,6 +88,7 @@ module.exports = React.createClass({
      //console.log(this.props.detailData);
 
      console.log(this.props.title);
+     var height = Dimensions.get('window').height; //1000
      var rankFont = (Dimensions.get('window').height)*(150/1080);
      var nameFont = (Dimensions.get('window').height)*(60/1080);
      var headingFont = (Dimensions.get('window').height)*(25/1080);
@@ -101,21 +102,21 @@ module.exports = React.createClass({
         var rank = parseInt(this.context.userData[this.props.focusedVal].key) + 1;
         var dealAmount = Accounting.formatMoney(this.context.userData[this.props.focusedVal].aggregates[0].value,options);
         return (
-          <View style={{flexDirection: 'column', height: 900, marginTop: 60}}>
+          <View style={{flexDirection: 'column', height: height, marginTop: 60}}>
             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
               <View style={{flex: 1, alignItems: 'center'}}>
                 <Text style={{fontSize: rankFont, color:'#ffffff', fontFamily: 'SalesforceSans-Regular', flex: 1}}>{rank}</Text>
               </View>
               <View style={{flex: 1.75, alignItems: 'flex-start', marginTop: 60}}>
                 <Image
-                          style={styles.image}
-                          source={{uri: this.props.chatterData.fullEmailPhotoUrl}} />
+                  style={styles.image}
+                  source={{uri: this.props.chatterData.fullEmailPhotoUrl}} />
               </View>
             </View>
             
             <View style={{alignItems: 'center'}}>    
-                <Text style={{fontSize: nameFont, alignItems: 'center', color:'white', fontFamily: 'SalesforceSans-Regular', paddingTop: 20}}>{name}</Text>
-                <Text style={{fontSize: headingFont, alignItems: 'center', color:'white', fontFamily: 'SalesforceSans-Regular'}}>{this.props.title}</Text>
+              <Text style={{fontSize: nameFont, alignItems: 'center', color:'white', fontFamily: 'SalesforceSans-Regular', paddingTop: 20}}>{name}</Text>
+              <Text style={{fontSize: headingFont, alignItems: 'center', color:'white', fontFamily: 'SalesforceSans-Regular'}}>{this.props.title}</Text>
             </View>
             <View style={{flexDirection: 'row', paddingLeft: 90, paddingRight: 90, paddingTop: 100}}>
               <View style={{alignItems: 'center', flex: 1}}>
@@ -130,6 +131,15 @@ module.exports = React.createClass({
               <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 150}}>{this.state.dealsClosed}</Text>
               <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 90}}>{dealAmount}</Text>
             </View>
+
+            {/*<View style={{flexDirection: 'row', paddingLeft: 90, paddingRight: 90, paddingTop: 100}}>
+              <View style={{alignItems: 'center', flex: 1}}>
+                <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{this.state.dealsClosed}</Text>
+              </View>
+              <View style={{alignItems: 'center', flex: 1}}>
+                <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{dealAmount}</Text>
+              </View>
+            </View>*/}
 
             <View style={{flexDirection: 'column', paddingLeft: 50, paddingTop: 50}}>
               <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', alignItems: 'center', flex: 1}}>{'RECENTLY CLOSED OPPORTUNITIES'}</Text>

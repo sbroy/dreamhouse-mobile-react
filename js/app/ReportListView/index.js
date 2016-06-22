@@ -8,7 +8,8 @@ const {
   View,
   Text,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  InteractionManager
 } = ReactNative;
 
 import {forceClient} from 'react.force';
@@ -84,7 +85,9 @@ module.exports = React.createClass({
   },
 
   componentDidMount(){
-    this.getReportData();
+    InteractionManager.runAfterInteractions(() => {
+      this.getReportData();
+    });
   },
 
   renderRow (rowData, sectionID, rowID){
