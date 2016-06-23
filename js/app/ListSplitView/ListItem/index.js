@@ -50,8 +50,24 @@ module.exports = React.createClass({
       sobj: React.PropTypes.object
     },
 
-    handlePress() {
-      this.handleTVFocus(); //show same data as when focusing on the item
+
+    //nav to DetailView on press
+    handlePress() { 
+      let rank = parseInt(this.props.rowData.key) + 1;
+      console.log(rank);
+      
+      if(this.props.navigator){
+        this.props.navigator.push({
+          component: this.props.routes['DetailView'].comp,
+          passProps: {
+            entityId: this.props.rowData.value,
+            entityType: 'user',
+            index: this.props.rowData.key, //this.props.cardData.position
+            chatterData: this.context.chatterData,
+            componentData: this.props.listData
+          }
+        })
+      }
     },
 
     handleTVFocus() {

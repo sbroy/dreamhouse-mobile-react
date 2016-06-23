@@ -75,7 +75,7 @@ module.exports = React.createClass({
           detailComponent = (
             <SobjContainer key={rowData.value} type={'user'} id={rowData.value}>
               <ChatterUserContainer key={rowData.value} type='user' id={rowData.value}>
-                <ListSplitItem callback = {this.textOnChange} focusedVal = {this.state.ind} fontColor = {this.state.fontColor} rowData = {rowData} navigator={this.props.navigator} route={this.props.route}/>
+                <ListSplitItem callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.props.listData} fontColor = {this.state.fontColor} rowData = {rowData} navigator={this.props.navigator} routes={this.props.routes}/>
               </ChatterUserContainer>
             </SobjContainer>);
           

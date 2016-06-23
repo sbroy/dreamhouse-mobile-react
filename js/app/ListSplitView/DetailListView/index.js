@@ -102,9 +102,10 @@ module.exports = React.createClass({
         var name = this.context.userData[this.props.focusedVal].label;
         var rank = parseInt(this.context.userData[this.props.focusedVal].key) + 1;
         var dealAmount = Accounting.formatMoney(this.context.userData[this.props.focusedVal].aggregates[0].value,options);
+        
         return (
           <View style={{flexDirection: 'column', height: height, marginTop: 60}}>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <View style={{flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center'}}>
                 <Text style={{fontSize: rankFont, color:'#ffffff', fontFamily: 'SalesforceSans-Regular', flex: 1}}>{rank}</Text>
               </View>
@@ -119,7 +120,8 @@ module.exports = React.createClass({
               <Text style={{fontSize: nameFont, alignItems: 'center', color:'white', fontFamily: 'SalesforceSans-Regular', paddingTop: 20}}>{name}</Text>
               <Text style={{fontSize: headingFont, alignItems: 'center', color:'white', fontFamily: 'SalesforceSans-Regular'}}>{this.props.title}</Text>
             </View>
-            <View style={{flexDirection: 'row', paddingLeft: 90, paddingRight: 90, paddingTop: 100}}>
+
+            <View style={{flexDirection: 'row', paddingTop: 100}}>
               <View style={{alignItems: 'center', flex: 1}}>
                 <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{'DEALS CLOSED'}</Text>
               </View>
@@ -128,23 +130,23 @@ module.exports = React.createClass({
               </View>
             </View>
 
-            <View style={{flexDirection: 'row', paddingLeft: 250, alignItems: 'center'}}>
-              <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 150}}>{this.state.dealsClosed}</Text>
-              <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 90}}>{dealAmount}</Text>
+            <View style={{flexDirection: 'row', paddingLeft: 150}}>
+              <Text style={{flex: 1, fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 150}}>{this.state.dealsClosed}</Text>
+              <Text style={{flex: 1, fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 90}}>{dealAmount}</Text>
             </View>
 
-            {/*<View style={{flexDirection: 'row', paddingLeft: 90, paddingRight: 90, paddingTop: 100}}>
+            <View style={{flexDirection: 'row'}}>
               <View style={{alignItems: 'center', flex: 1}}>
                 <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{this.state.dealsClosed}</Text>
               </View>
               <View style={{alignItems: 'center', flex: 1}}>
                 <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{dealAmount}</Text>
               </View>
-            </View>*/}
+            </View>
 
             <View style={{flexDirection: 'column', paddingLeft: 50, paddingTop: 50}}>
               <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', alignItems: 'center', flex: 1}}>{'RECENTLY CLOSED OPPORTUNITIES'}</Text>
-              <ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} index={rank} handleReportFacts={this.setReportFacts} entityId={this.props.detailData.reportResult.groupingsDown.groupings[this.props.focusedVal].value} callback = {this.getDealsClosed}/>
+              {/*<ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} index={rank} handleReportFacts={this.setReportFacts} entityId={this.props.detailData.reportResult.groupingsDown.groupings[this.props.focusedVal].value} callback = {this.getDealsClosed}/>*/}
             </View>
           </View>
         );
@@ -152,7 +154,6 @@ module.exports = React.createClass({
       else {
         return (
           <View>
-            <Text>{'blank page'}</Text>
          </View>
         );
       }

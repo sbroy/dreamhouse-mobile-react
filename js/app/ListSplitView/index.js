@@ -129,7 +129,7 @@ module.exports = React.createClass({
             
             <View style={{flexDirection: 'column', alignSelf: 'flex-start', marginTop: 60, height: height, width: widthLeft}}>  
               <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 80, width: widthLeft}}>
-                <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{'Leaderboard'}</Text>
+                <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{'Leaderboard'}</Text>
                 <Image source={require('../../../assets/salesforceLogo.png')}/>
               </View>
 
@@ -142,13 +142,13 @@ module.exports = React.createClass({
                 <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', flex: 1, paddingRight: 30}}>{'AMOUNT'}</Text>
               </View>
 
-              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} route={this.props.route}/>
+              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} routes={this.props.routes}/>
             </View>
           
     
             <Image source={require('../../../assets/polygonBg.png')} style={[styles.backgroundImage, {flexDirection: 'column'}]}>
               <View style={{flexDirection: 'column', alignItems: 'center', height: height, width: widthRight, marginRight: 90}}>
-                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.title} navigator={this.props.navigator} route={this.props.route}/>
+                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.title} navigator={this.props.navigator} routes={this.props.routes}/>
               </View>
             </Image>
 

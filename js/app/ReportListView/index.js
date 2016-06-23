@@ -44,7 +44,7 @@ module.exports = React.createClass({
               dataSource,
               sumOfEntities;
 
-          console.log("****REPORTRESPONSE: " + JSON.stringify(response));
+          //console.log("****REPORTRESPONSE: " + JSON.stringify(response));
           dataSource = groupings.map(function(grouping, index){
             let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
             mappedObject.position = grouping.key;

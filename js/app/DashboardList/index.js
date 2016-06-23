@@ -43,6 +43,7 @@ module.exports = React.createClass({
   },
 
   render(){
+    console.log(this.props.routes);
     return (
       <Image source={require('../../../assets/polygonBg.png')} style={{flex: 1, resizeMode: 'cover'}}>
         <List dbListResponse = {this.state.dbListResponse} navigator={this.props.navigator} routes={this.props.routes} style={styles.container}/>
