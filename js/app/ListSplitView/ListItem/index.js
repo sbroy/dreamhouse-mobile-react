@@ -50,8 +50,23 @@ module.exports = React.createClass({
       sobj: React.PropTypes.object
     },
 
+    //nav to DetailView on press
     handlePress() {
-      this.handleTVFocus(); //show same data as when focusing on the item
+      let rank = parseInt(this.props.rowData.key) + 1;
+      console.log(this.props.listData);
+      
+      if(this.props.navigator){
+        this.props.navigator.push({
+          component: this.props.routes['DetailView'].comp,
+          passProps: {
+            entityId: this.props.rowData.value,
+            entityType: 'user',
+            index: rank, //this.props.cardData.position
+            chatterData: this.context.chatterData,
+            componentData: this.props.listData
+          }
+        })
+      }
     },
 
     handleTVFocus() {
@@ -89,12 +104,12 @@ module.exports = React.createClass({
         justifyContent: 'flex-end'
       };
 
-      var dealValue = Accounting.formatMoney(this.props.rowData.aggregates[0].value,options);
+      let dealValue = Accounting.formatMoney(this.props.rowData.aggregates[0].value,options);
 
-      var rank = parseInt(this.props.rowData.key) + 1;
+      let rank = parseInt(this.props.rowData.key) + 1;
 
-      var textFont = (Dimensions.get('window').height)*(31/1080);
-      var amountFont = (Dimensions.get('window').height)*(29/1080);
+      let textFont = (Dimensions.get('window').height)*(31/1080);
+      let amountFont = (Dimensions.get('window').height)*(29/1080);
       return (
           <TouchableHighlight style={{height: 70, marginLeft: 65, marginRight: 65}} underlayColor={'#dddddd'} onPress={this.handlePress} onTVFocus={this.handleTVFocus}>
 

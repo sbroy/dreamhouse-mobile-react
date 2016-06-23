@@ -15,7 +15,7 @@ import Theme from 'react.force.base.theme';
 
 module.exports = React.createClass({
   getDetails(){
-    let details = {}
+    let details = {};
     this.props.detailColumnMap.forEach(function(detail, index){
       details[detail] = this.props.rowData.dataCells[index];
     }.bind(this));

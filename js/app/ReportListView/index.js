@@ -60,6 +60,10 @@ module.exports = React.createClass({
             detailColumnMap : response.reportMetadata.detailColumns,
             dataSource: this.getDataSource(dataSource.rows)
           });
+
+          let numDeals = this.state.dataSource._getRowData.length;
+          console.log(numDeals);
+          this.props.callback(numDeals);
         }
       },
       (error)=> {

@@ -151,12 +151,12 @@ module.exports = React.createClass({
     let windowHeight = Dimensions.get('window').height;
     let windowWidth = Dimensions.get('window').width;
 
-    var height = Dimensions.get('window').height; //1000
-    var widthLeft = (Dimensions.get('window').width)*(1.1/2.1);
-    var widthRight = (Dimensions.get('window').width)*(1/2.1);
+    let height = windowHeight; //1000
+    let widthLeft = windowWidth*(1.1/2.1);
+    let widthRight = windowWidth*(1/2.1);
 
-    var titleFont = (Dimensions.get('window').height)*(57/1080);
-    var headingFont = (Dimensions.get('window').height)*(25/1080);
+    let titleFont = windowHeight*(57/1080);
+    let headingFont = windowHeight*(25/1080);
 
      return (
 
@@ -178,13 +178,13 @@ module.exports = React.createClass({
                 <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', flex: 1, paddingRight: 30}}>{'AMOUNT'}</Text>
               </View>
 
-              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} route={this.props.route}/>
+              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} routes={this.props.routes}/>
             </View>
 
 
             <Image source={require('../../../assets/polygonBg.png')} style={[styles.backgroundImage, {flexDirection: 'column'}]}>
               <View style={{flexDirection: 'column', alignItems: 'center', height: height, width: widthRight, marginRight: 90}}>
-                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.title} navigator={this.props.navigator} route={this.props.route}/>
+                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.title} navigator={this.props.navigator} routes={this.props.routes}/>
               </View>
             </Image>
 
