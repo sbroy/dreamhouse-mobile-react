@@ -31,6 +31,8 @@ import Settings from './Settings';
 import DashboardList from './DashboardList';
 import CardView from './CardView';
 import DetailView from './DetailView';
+import SetupView from './SetupView';
+import ListSplitView from './ListSplitView';
 
 module.exports = {
   propertyList:{
@@ -86,7 +88,17 @@ module.exports = {
   DetailView: {
     name: 'DetailView',
     comp: DetailView
+  },
+  SetupView: {
+    name: 'SetupView',
+    comp: SetupView
+  },
+
+  ListSplitView: {
+    name: 'ListSplitView',
+    comp:ListSplitView
   }
+
 };
 
 // module.exports.menu = ['propertyList','brokerList','favoriteList','settings'];

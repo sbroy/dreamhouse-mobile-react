@@ -8,15 +8,7 @@ const {
 } = ReactNative;
 
 module.exports = StyleSheet.create({
-    card: {
-        // width: (Dimensions.get("window").width/6),
-        // height: (Dimensions.get("window").height/3),
-        // width: 300,
-        // height: 425,
-        // margin: 10,
-        // borderRadius: 10
-    },
-  container: {
+    container: {
         flex: 1,
         backgroundColor: 'white',
     },
@@ -40,12 +32,6 @@ module.exports = StyleSheet.create({
     image: {
         width: __APPLETV__ ? 298 : 42,
         height: __APPLETV__ ? 300 : 42,
-        // borderRadius: 5,
-        // borderBottomLeftRadius: 0,
-        // borderBottomRightRadius: 0,
-        // borderTopRightRadius: 20,
-        // borderTopLeftRadius: 20,
-
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
         resizeMode: 'cover'
     }

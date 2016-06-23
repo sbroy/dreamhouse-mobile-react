@@ -8,7 +8,8 @@ const {
   View,
   Text,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  InteractionManager
 } = ReactNative;
 
 import {forceClient} from 'react.force';
@@ -16,6 +17,10 @@ import {forceClient} from 'react.force';
 import ListItem from './ListItem';
 
 module.exports = React.createClass({
+
+  getDefaultProps(){
+    entityId: 0
+  },
 
   contextTypes: {
     sobj: React.PropTypes.object,
@@ -42,7 +47,6 @@ module.exports = React.createClass({
               dataSource,
               sumOfEntities;
 
-          console.log("****REPORTRESPONSE: " + JSON.stringify(response));
           dataSource = groupings.map(function(grouping, index){
             let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
             mappedObject.position = grouping.key;
@@ -51,20 +55,11 @@ module.exports = React.createClass({
             return dataBlob.value === this.props.entityId;
           }.bind(this));
 
-          debugger;
           this.setState({
             reportApiResponse: response,
             detailColumnMap : response.reportMetadata.detailColumns,
             dataSource: this.getDataSource(dataSource.rows)
           });
-
-          // let detailDataSource = dataSource[this.props.index-1].rows;
-          // detailDataSource.forEach(function(detail){
-          //   debugger;
-          // });
-
-          // this.props.handleReportFacts(detailDataSource.length, detailDataSource.
-
         }
       },
       (error)=> {
@@ -73,8 +68,20 @@ module.exports = React.createClass({
     );
   },
 
+  shouldComponentUpdate(nextProps, nextState, nextContext){
+    if (this.props.entityId !== nextProps.entityId){
+      this.getReportData();
+      return true;
+    } else if (this.state.reportApiResponse !== nextState.reportApiResponse){
+      return true;
+    }
+    return false;
+  },
+
   componentDidMount(){
-    this.getReportData();
+    InteractionManager.runAfterInteractions(() => {
+      this.getReportData();
+    });
   },
 
   renderRow (rowData, sectionID, rowID){

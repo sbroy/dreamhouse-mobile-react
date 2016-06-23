@@ -138,7 +138,8 @@ module.exports = React.createClass({
           <NavigatorIOS
             style={styles.container}
             initialRoute={{
-              component : routes['DashboardList'].comp,
+              title : 'SetupView',
+              component : routes['SetupView'].comp,
               passProps: {
                 routes: routes
               }

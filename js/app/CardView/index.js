@@ -12,7 +12,8 @@ const {
     TouchableOpacity,
     Animated,
     ListView,
-    InteractionManager
+    InteractionManager,
+    Dimensions
 } = ReactNative;
 
 import CardView from './View';
@@ -30,10 +31,9 @@ module.exports = React.createClass({
       dbResponse: {},
       componentData: {},
       fullList: [],
-      viewList: [],
       dataSource: ds.cloneWithRows([]),
-      title: "Title",
-      subtitle: "Subtitle",
+      title: "",
+      subtitle: "",
       pageIndex: 0,
       numOfPages: 1,
       pageIndicatorAnim: new Animated.Value(0),
@@ -77,9 +77,8 @@ module.exports = React.createClass({
 
             this.setState({
               dbResponse: response,
-              componentData: JSON.parse(JSON.stringify(componentData)), //for now just grab the first component
+              componentData: componentData, //for now just grab the first component
               fullList: dbDataList,
-              viewList: dbDataList.slice(0,10),
               dataSource: this.getDataSource(dbDataList.slice(0,10)),
               title: componentData.reportResult.reportMetadata.name.toUpperCase(),
               subtitle: moment(componentData.reportResult.reportMetadata.standardDateFilter.startDate).format('MMM D') +
@@ -92,7 +91,6 @@ module.exports = React.createClass({
   },
 
   handleBack(){
-    console.log('handle back');
     let prevPageIndex = this.state.pageIndex <= 0 ? 0 : this.state.pageIndex - 1;
 
     this.setState({
@@ -102,8 +100,6 @@ module.exports = React.createClass({
   },
 
   handleForward(){
-    console.log('handle forward');
-
     let nextPageIndex = this.state.pageIndex >= this.state.numOfPages -1 ? this.state.pageIndex : this.state.pageIndex + 1;
 
     this.setState({
@@ -126,30 +122,61 @@ module.exports = React.createClass({
     console.log("page index: [" + this.state.pageIndex + "]");
   },
   render() {
+    // Screen sized based styling for card view
+    let windowHeight = Dimensions.get('window').height,
+        windowWidth = Dimensions.get('window').width;
+
+    let titleFont = 57,
+        subtitleFont = 25,
+        recMarginHoriz = windowWidth * (90/1920),
+        recMarginVert = windowHeight * (60/1080),
+        cardMarginHoriz = windowWidth * (30/1920),
+        cardMarginVert = windowHeight * (50/1080),
+        pageIndicatorWidth = windowWidth - (recMarginHoriz * 2),
+        pageIndicatorHeight = windowHeight * (10/1080);
+
     return (
-      <Image source={require('../../../assets/polygonBg.png')} style={{flexDirection: 'column', alignItems: 'center', flex: 1, resizeMode: 'cover'}}>
-        <View style={{flexDirection: 'row', alignSelf: 'flex-start', paddingTop: 20, height: 100, width: 1920, backgroundColor: 'rgba(0,0,0,0)'}}>
-          <Text style={{fontSize: 60, color:'white', fontFamily: 'SalesforceSans-Light', paddingLeft:80}}>{this.state.title}</Text>
+      <Image source={{uri: 'polygonBg'}} style={{flexDirection: 'column', alignItems: 'center', flex: 1, resizeMode: 'cover'}}>
+        <View style={{flexDirection: 'row', alignSelf: 'flex-start', marginTop: 60, width: windowWidth, backgroundColor: 'rgba(0,0,0,0)'}}>
+          <Text style={{fontSize: 60, color:'white', fontFamily: 'SalesforceSans-Light', paddingLeft:recMarginHoriz}}>{this.state.title}</Text>
           <Text style={{fontSize: 25, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:20, paddingTop:35}}>{this.state.subtitle}</Text>
-          <Image style={{position:'absolute', top:50, right: 50}} source={require('../../../assets/salesforceLogo.png')}/>
+          <Image source={{uri: 'salesforceLogo'}} style={{position:'absolute', top:50, right: 50, width:117, height:82}} />
         </View>
         <View style={{flexDirection: 'row', alignSelf:'center', marginBottom:30}}>
-          {/* hidden touchable element here that handles moving to card view*/}
-          <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:90}} onPress={()=>{return;}} onTVFocus={this.handleBack}>
-            <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'<'} </Text>
-          </TouchableHighlight>
+
+          {(()=>{
+            return (this.state.pageIndex !== 0) ?
+              (
+                <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:recMarginHoriz}} onPress={()=>{return;}} onTVFocus={this.handleBack}>
+                  <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'<'} </Text>
+                </TouchableHighlight>
+              ) :
+              (
+                <View style={{width:90}}/>
+              )
+            })()
+          }
 
           <View style={{width:1740, height:900, alignItems: 'center' }}>
            <CardView navigator={this.props.navigator} routes={this.props.routes} />
           </View>
 
-          <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:90}} onPress={()=>{return;}} onTVFocus={this.handleForward}>
-            <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'>'} </Text>
-          </TouchableHighlight>
+          {(()=>{
+            return (this.state.pageIndex !== this.state.numOfPages - 1) ?
+              ( <TouchableHighlight underlayColor={'rgba(0,0,0,0)'} style={{justifyContent:'center', width:recMarginHoriz}} onPress={()=>{return;}} onTVFocus={this.handleForward}>
+                  <Text style={{color:'rgba(0,0,0,0)', fontSize:80, fontFamily: 'SalesforceSans-Light'}}> {'>'} </Text>
+                </TouchableHighlight>
+              ) :
+              (
+                <View style={{width:90}}/>
+              )
+            })()
+          }
+
         </View>
 
-        <View style={{borderBottomWidth:2, borderColor: 'rgba(255,255,255,0.5)', height:10, width: 1740 }}>
-          <Animated.View style={{backgroundColor: 'rgba(255,255,255,0.5)', borderWidth:1, borderColor: 'rgba(255,255,255,0)', height:7, marginTop:1, width:Math.round(1740/this.state.numOfPages), marginLeft: this.state.pageIndicatorAnim}}/>
+        <View style={{borderBottomWidth:2, borderColor: 'rgba(255,255,255,0.5)', height:pageIndicatorHeight, width: pageIndicatorWidth}}>
+          <Animated.View style={{backgroundColor: 'rgba(255,255,255,0.5)', borderWidth:1, borderColor: 'rgba(255,255,255,0)', height:7, marginTop:1, width:Math.round(pageIndicatorWidth/this.state.numOfPages), marginLeft: this.state.pageIndicatorAnim}}/>
         </View>
       </Image>
       );

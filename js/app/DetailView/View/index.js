@@ -45,7 +45,7 @@ module.exports = React.createClass({
   render(){
     //TODO : Kapil - abstract for different entities
     return(
-      <Image source={require('../../../../assets/polygonBg.png')} style={{flex:1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start', resizeMode: 'cover', width:1920, height:1080}}>
+      <Image source={{uri: 'polygonBg'}} style={{flex:1, flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start', resizeMode: 'cover', width:1920, height:1080}}>
         <View style={{flex:1, flexDirection:'row', alignItems: 'stretch', justifyContent: 'center', borderWidth:0, borderColor:'red'}}>
           <View style={{flex:1, borderWidth:0, alignItems:'center', borderColor:'blue'}}>
             {/* empty area for profile picture*/}
