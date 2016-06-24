@@ -45,7 +45,7 @@ module.exports = React.createClass({
         passProps: {
           entityId: this.props.cardData.value,
           entityType: this.props.cardType,
-          index: this.props.cardData.position,
+          position: this.props.cardData.position,
           chatterData: this.context.chatterData,
           componentData: this.context.componentData,
           sumOfEntities: this.state.sumOfEntities

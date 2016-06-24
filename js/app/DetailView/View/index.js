@@ -72,7 +72,7 @@ module.exports = React.createClass({
           </View>
           <View style={{flex:2, borderWidth:0, borderColor:'green', flexDirection:'column', alignItems:'stretch', paddingLeft:100, paddingTop:50, paddingRight:100}}>
             <Text style={{fontSize:25, fontFamily:'SalesforceSans-Regular', color:'#829CBA', paddingBottom:20}}>RECENTLY CLOSED OPPORTUNITIES</Text>
-            <ReportLView reportId={this.props.componentData.reportResult.reportMetadata.id} index={this.props.index} summaryCallback={this.summaryCallback} entityId={this.props.entityId}/>
+            <ReportLView reportId={this.props.componentData.reportResult.reportMetadata.id} position={this.props.position} summaryCallback={this.summaryCallback} entityId={this.props.entityId}/>
           </View>
           <View style={{flex:1, flexDirection:'column', alignItems: 'stretch', paddingTop:50}}>
             <Text style={{fontSize:25, fontFamily:'SalesforceSans-Regular', color:'#829CBA', paddingBottom:20, justifyContent:'flex-end'}}>SUMMARY</Text>
