@@ -8,12 +8,16 @@ const {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  Dimensions
 } = ReactNative;
 
 import Theme from 'react.force.base.theme';
 
 import styles from './styles';
+
+let windowHeight = Dimensions.get('window').height,
+    windowWidth = Dimensions.get('window').width;
 
 module.exports = React.createClass({
   getDefaultProps(){
@@ -23,8 +27,9 @@ module.exports = React.createClass({
 
   getInitialState (){
     return {
-      height: 360,
-      width: 260,
+      height: windowHeight * 380/1080,
+      width: windowWidth * 250/1920,
+      sumOfEntities: 0
     }
   },
 
@@ -42,18 +47,15 @@ module.exports = React.createClass({
           entityType: this.props.cardType,
           index: this.props.cardData.position,
           chatterData: this.context.chatterData,
-          componentData: this.context.componentData
+          componentData: this.context.componentData,
+          sumOfEntities: this.state.sumOfEntities
         }
       })
     }
   },
 
- shouldComponentUpdate(nextProps, nextState, nextContext){
-    return true;
-  },
-
-  render() {
-    var options = {
+  componentWillMount(){
+    let options = {
       symbol : "$",
       decimal : ".",
       thousand: ",",
@@ -61,22 +63,24 @@ module.exports = React.createClass({
       format: "%s%v"
     };
 
-    var dealValue = Accounting.formatMoney(this.props.cardData.aggregates[0].value,options);
+    this.setState({
+      sumOfEntities : Accounting.formatMoney(this.props.cardData.aggregates[0].value,options)
+    });
+  },
 
+  render() {
     return (
-
         <TouchableOpacity onPress={this.handlePress} style={{backgroundColor: 'rgba(0, 0, 0, 0.4)', width: this.state.width, height: this.state.height, shadowColor:'#000000', shadowOpacity:0.5, shadowRadius:8, shadowOffset:{height:7, width:0}}}>
-           <Theme.Tiles.List
-            title={<Text style={{fontSize: 25, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{this.props.cardData.label}</Text>}
-            detail={<Text style={{fontSize: 40, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}>{dealValue}</Text>}
-            image={
-              <Image
-                style={{width: __APPLETV__ ? 258 : 42, height: __APPLETV__ ? 225 : 42}}
-                source={{uri: this.context.chatterData.fullEmailPhotoUrl}}
-                >
-                <View style={{position:'absolute', left: 10, width:50, height:70, backgroundColor:'rgba(59,173,193,0.8)', flex: 1, flexDirection:'column', alignItems:'center', justifyContent:'center'}}><Text style={{ fontSize:35, color:'white', fontFamily: 'SalesforceSans-Bold', textAlign:'justify', marginLeft:-5}}> {this.props.cardData.position}</Text></View>
-                </Image>}
-            />
+           <View style={{flex:1, flexDirection:'column', alignItems:'stretch', justifyContent: 'flex-start'}}>
+            <Image style={{width: __APPLETV__ ? 250 : 42, height: __APPLETV__ ? 250 : 42, shadowOpacity: 0}}
+                source={{uri: this.context.chatterData.fullEmailPhotoUrl}} />
+            <View style={{flexDirection:'row', alignItems:'stretch', paddingTop: 10}}>
+              <View style={{flex:1, alignItems:'flex-start', justifyContent:'center', flexDirection:'column'}}>
+                <Text style={{fontSize: 25, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}> <Text style={{ fontSize:35, color:'white', fontFamily: 'SalesforceSans-Bold'}}> {this.props.cardData.position}</Text> {" " + this.props.cardData.label} </Text>
+                <Text style={{fontSize: 35, color: '#ffffff', fontFamily: 'SalesforceSans-Light'}}> {this.state.sumOfEntities} </Text>
+              </View>
+            </View>
+           </View>
         </TouchableOpacity>
     );
   }

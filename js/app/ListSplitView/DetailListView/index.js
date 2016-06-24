@@ -13,7 +13,8 @@ const {
     StyleSheet,
     TouchableOpacity,
     TouchableHighlight,
-    Dimensions
+    Dimensions,
+    InteractionManager
 } = ReactNative;
 
 import {SobjContainer} from 'react.force.datacontainer';
@@ -61,7 +62,7 @@ module.exports = React.createClass({
     },
 
 
-    getDealsClosed: function (dealsClosed) {
+    getDealsClosed (dealsClosed) {
       this.setState({
         dealsClosed: dealsClosed
       })
@@ -76,8 +77,7 @@ module.exports = React.createClass({
         decimal : ".",
         thousand: ",",
         precision : 0,
-        format: "%s%v",
-        justifyContent: 'flex-end'
+        format: "%s%v"
       };
 
      //console.log(this.context.userData);
@@ -89,24 +89,29 @@ module.exports = React.createClass({
 
      console.log(this.props.title);
      console.log(this.props.focusedVal);
-     var height = Dimensions.get('window').height; //1000
-     var rankFont = (Dimensions.get('window').height)*(150/1080);
-     var nameFont = (Dimensions.get('window').height)*(60/1080);
-     var headingFont = (Dimensions.get('window').height)*(25/1080);
-     var titleFont = (Dimensions.get('window').height)*(57/1080);
-     var headingFont = (Dimensions.get('window').height)*(25/1080);
+
+     let windowHeight = Dimensions.get('window').height;
+     let windowWidth = Dimensions.get('window').width;
+
+     let widthRight = windowWidth*(1/2.1);
+     let height = windowHeight; //1080
+
+     let rankFont = windowHeight*(150/1080);
+     let nameFont = windowHeight*(60/1080);
+     let headingFont = windowHeight*(25/1080);
+     let titleFont = windowHeight*(57/1080);
 
      if(__APPLETV__) {
       if (this.context.dataSource !== undefined && this.context.dataSource.length !== 0 &&  this.props.detailData !== null) {
-        console.log("****UserId** " + this.context.dataSource[this.props.focusedVal].value);
         var name = this.context.dataSource[this.props.focusedVal].label;
         var rank = parseInt(this.context.dataSource[this.props.focusedVal].key) + 1;
         var dealAmount = Accounting.formatMoney(this.context.dataSource[this.props.focusedVal].aggregates[0].value,options);
         return (
-          <View style={{flexDirection: 'column', height: height, marginTop: 60}}>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+          <View style={{flexDirection: 'column', height: height, width: widthRight}}>
+
+            <View style={{flexDirection: 'row', justifyContent:'center', marginTop: 60}}>
               <View style={{flex: 1, alignItems: 'center'}}>
-                <Text style={{fontSize: rankFont, color:'#ffffff', fontFamily: 'SalesforceSans-Regular', flex: 1}}>{rank}</Text>
+                <Text style={{fontSize: rankFont, color:'#829CBA', fontFamily: 'SalesforceSans-Light'}}>{rank}</Text>
               </View>
               <View style={{flex: 1.75, alignItems: 'flex-start', marginTop: 60}}>
                 <Image
@@ -128,23 +133,18 @@ module.exports = React.createClass({
               </View>
             </View>
 
-            <View style={{flexDirection: 'row', paddingLeft: 250, alignItems: 'center'}}>
-              <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 150}}>{this.state.dealsClosed}</Text>
-              <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular', paddingRight: 90}}>{dealAmount}</Text>
-            </View>
-
-            {/*<View style={{flexDirection: 'row', paddingLeft: 90, paddingRight: 90, paddingTop: 100}}>
+            <View style={{flexDirection: 'row', paddingLeft: 90, paddingRight: 90}}>
               <View style={{alignItems: 'center', flex: 1}}>
                 <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{this.state.dealsClosed}</Text>
               </View>
               <View style={{alignItems: 'center', flex: 1}}>
                 <Text style={{fontSize: titleFont, color:'white', fontFamily: 'SalesforceSans-Regular'}}>{dealAmount}</Text>
               </View>
-            </View>*/}
+            </View>
 
-            <View style={{flexDirection: 'column', paddingLeft: 50, paddingTop: 50}}>
-              <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', alignItems: 'center', flex: 1}}>{'RECENTLY CLOSED OPPORTUNITIES'}</Text>
-              <ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} index={rank} handleReportFacts={this.setReportFacts} entityId={this.context.dataSource[this.props.focusedVal].value} callback = {this.getDealsClosed}/>
+            <View style={{flexDirection: 'column', paddingLeft: 90, paddingTop: 50, paddingRight:90}}>
+              <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', alignItems: 'center'}} numberOfLines={1} >{'RECENTLY CLOSED OPPORTUNITIES'}</Text>
+              <ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} index={rank} handleReportFacts={this.setReportFacts} entityId={this.context.dataSource[this.props.focusedVal].value} summaryCallback = {this.getDealsClosed} numberOfRows = {3}/>
             </View>
           </View>
         );
@@ -152,7 +152,6 @@ module.exports = React.createClass({
       else {
         return (
           <View>
-            <Text>{'blank page'}</Text>
          </View>
         );
       }

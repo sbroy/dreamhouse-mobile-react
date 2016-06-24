@@ -58,8 +58,11 @@ module.exports = React.createClass({
           this.setState({
             reportApiResponse: response,
             detailColumnMap : response.reportMetadata.detailColumns,
-            dataSource: this.getDataSource(dataSource.rows)
+            dataSource: this.getDataSource(this.props.numberOfRows ? dataSource.rows.slice(0, this.props.numberOfRows) : dataSource.rows)
           });
+
+          let numOfEntities = dataSource.rows.length;
+          this.props.summaryCallback && this.props.summaryCallback(numOfEntities);
         }
       },
       (error)=> {
@@ -92,7 +95,7 @@ module.exports = React.createClass({
 
   render(){
     return(
-      <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap', marginRight:100}}
+      <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap'}}
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
         />

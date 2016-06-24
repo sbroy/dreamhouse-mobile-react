@@ -42,6 +42,7 @@ module.exports = React.createClass({
       title: "",
       subtitle: "",
       dataSource: [],
+      role: ""
     }
   },
 
@@ -134,7 +135,7 @@ module.exports = React.createClass({
           ind: value1,
           chatterData: value2,
           fontColor: value3,
-          title: value4
+          role: value4
         },function() {
           //console.log('CallbackOrig ' + this.state.fontColor);
           this.forceUpdate();
@@ -148,25 +149,25 @@ module.exports = React.createClass({
   },
 
   render() {
+
     let windowHeight = Dimensions.get('window').height;
     let windowWidth = Dimensions.get('window').width;
 
-    var height = Dimensions.get('window').height; //1000
-    var widthLeft = (Dimensions.get('window').width)*(1.1/2.1);
-    var widthRight = (Dimensions.get('window').width)*(1/2.1);
+    let height = windowHeight; //1000
+    let widthLeft = windowWidth*(1.1/2.1);
+    let widthRight = windowWidth*(1/2.1);
 
-    var titleFont = (Dimensions.get('window').height)*(57/1080);
-    var headingFont = (Dimensions.get('window').height)*(25/1080);
+    let titleFont = windowHeight*(57/1080);
+    let headingFont = windowHeight*(25/1080);
 
      return (
-
         <Image source={{uri: 'polygonBg'}} style={[styles.backgroundImage, {flexDirection: 'column', alignItems: 'center'}]}>
-          <View style={{flexDirection: 'row', alignSelf: 'flex-start', width: widthLeft, backgroundColor: 'rgba(0,0,0,0)'}}>
+          <View style={{flexDirection: 'row', alignSelf: 'flex-start', width: widthLeft, backgroundColor: 'transparent'}}>
 
             <View style={{flexDirection: 'column', alignSelf: 'flex-start', marginTop: 60, height: height, width: widthLeft}}>
               <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 80, width: widthLeft}}>
-                <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{'Leaderboard'}</Text>
-                <Image source={require('../../../assets/salesforceLogo.png')}/>
+                <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{this.state.title}</Text>
+                <Image source={{uri: 'salesforceLogo'}}/>
               </View>
 
               <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 80}}>
@@ -178,15 +179,12 @@ module.exports = React.createClass({
                 <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', flex: 1, paddingRight: 30}}>{'AMOUNT'}</Text>
               </View>
 
-              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} route={this.props.route}/>
+              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} routes={this.props.routes}/>
             </View>
 
-
-            <Image source={require('../../../assets/polygonBg.png')} style={[styles.backgroundImage, {flexDirection: 'column'}]}>
-              <View style={{flexDirection: 'column', alignItems: 'center', height: height, width: widthRight, marginRight: 90}}>
-                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.title} navigator={this.props.navigator} route={this.props.route}/>
+              <View style={{flexDirection: 'column', alignItems: 'center', height: height, width: widthRight, marginRight: 90, backgroundColor:'rgba(35,4,69,0.5)'}}>
+                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.role} navigator={this.props.navigator} routes={this.props.routes}/>
               </View>
-            </Image>
 
           </View>
         </Image>
