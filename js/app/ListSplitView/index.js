@@ -59,10 +59,8 @@ module.exports = React.createClass({
   },
 
   getDashboardData(){
-    console.log('in dashboardData');
     forceClient.dashboardData(this.props.dbId,
       (response) => {
-        console.log(response);
         if(response){
           let groupings = [],
               factMap = {},
@@ -137,7 +135,6 @@ module.exports = React.createClass({
           fontColor: value3,
           role: value4
         },function() {
-          //console.log('CallbackOrig ' + this.state.fontColor);
           this.forceUpdate();
         });
   },

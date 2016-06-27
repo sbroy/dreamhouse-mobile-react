@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactNative from 'react-native';
 
-
 const {
   View,
   Text,
@@ -14,7 +13,7 @@ const {
 
 import {forceClient} from 'react.force';
 
-import ListItem from './ListItem';
+import ListItem from '../ListItem';
 
 import shallowEqual from 'shallowequal';
 
@@ -38,6 +37,7 @@ module.exports = React.createClass({
   getInitialState(){
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
+      reportApiResponse: {},
       dataSource: ds.cloneWithRows([])
     }
   },
@@ -47,6 +47,47 @@ module.exports = React.createClass({
   },
 
   getReportData(){
+
+    setTimeout(()=>{
+      if(this.context.reportData && this.context.reportData.length !== 0){
+        let groupings = this.context.reportData.groupingsDown.groupings,
+          factMap = this.context.reportData.factMap,
+          dataSource,
+          sumOfEntities;
+      //console.log("****REPORTRESPONSE: " + JSON.stringify(this.context.reportData));
+
+        dataSource = groupings.map(function(grouping, index){
+          let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
+          mappedObject.position = grouping.key;
+          return mappedObject;
+        }).find(function(dataBlob){
+          return dataBlob.value === this.props.entityId;
+        }.bind(this));
+
+        this.setState({
+          reportApiResponse: this.context.reportData,
+          detailColumnMap : this.context.reportData.reportMetadata.detailColumns,
+          dataSource: this.getDataSource(dataSource.rows)
+        });
+
+        let numOfEntities = dataSource.rows.length;
+        this.props.summaryCallback && this.props.summaryCallback(numOfEntities);
+        
+      }
+    },300);
+
+    /*console.log(this.context.reportData);
+    console.log(this.context.reportData.length);
+    while (this.context.reportData === undefined || this.context.reportData.length === 0 || this.context.reportData.length || undefined) {
+      console.log('no reportData');
+    }
+    console.log(this.context.reportData);
+    console.log(this.context.reportData.length);
+    //if(this.context.reportData !== undefined && this.context.reportData.length !== 0 && this.context.reportData.length !== undefined) {
+      console.log('in loop');*/
+      
+      
+
     // forceClient.reportData(this.props.reportId,
     //   (response)=>{
     //     if(response){
@@ -81,21 +122,22 @@ module.exports = React.createClass({
 
 
   shouldComponentUpdate(nextProps, nextState, nextContext){
-    return !shallowEqual(this.context.reportData, nextContext.reportData);
-    // if (this.props.entityId !== nextProps.entityId){
-    //   this.getReportData();
-    //   return true;
-    // } else if (this.state.reportApiResponse !== nextState.reportApiResponse){
-    //   return true;
-    // }
-    // return false;
+     if (this.props.entityId !== nextProps.entityId){
+       this.getReportData();
+       return true;
+     } else if (this.state.reportApiResponse !== nextState.reportApiResponse){
+       return true;
+     } else if (!shallowEqual(this.context.reportData, nextContext.reportData)) {
+       return true;
+     }
+     return false;
   },
 
-  // componentDidMount(){
-    // InteractionManager.runAfterInteractions(() => {
-    //   this.getReportData();
-    // });
-  // },
+  componentDidMount(){
+    InteractionManager.runAfterInteractions(() => {
+       this.getReportData();
+    });
+  },
 
   renderRow (rowData, sectionID, rowID){
     return (

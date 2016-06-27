@@ -21,7 +21,7 @@ import {SobjContainer} from 'react.force.datacontainer';
 import {ChatterUserContainer} from 'react.force.datacontainer';
 import ReportLView from '../../ReportListView';
 
-var dbDataList = [];
+let dbDataList = [];
 
 var styles = StyleSheet.create({
   list: {
@@ -69,8 +69,7 @@ module.exports = React.createClass({
     },
 
     render () {
-      /*console.log(this.props.title);
-      console.log(this.state.title);*/
+      console.log('Report Id');
 
       var options = {
         symbol : "$",
@@ -79,16 +78,6 @@ module.exports = React.createClass({
         precision : 0,
         format: "%s%v"
       };
-
-     //console.log(this.context.userData);
-     //console.log(this.context.focusKey);
-     //console.log(this.state.focusKey);
-     //console.log(this.props.route.entityId);
-     //console.log(this.state.focusKey);
-     //console.log(this.props.detailData);
-
-     console.log(this.props.title);
-     console.log(this.props.focusedVal);
 
      let windowHeight = Dimensions.get('window').height;
      let windowWidth = Dimensions.get('window').width;
@@ -103,9 +92,9 @@ module.exports = React.createClass({
 
      if(__APPLETV__) {
       if (this.context.dataSource !== undefined && this.context.dataSource.length !== 0 &&  this.props.detailData !== null) {
-        var name = this.context.dataSource[this.props.focusedVal].label;
-        var rank = parseInt(this.context.dataSource[this.props.focusedVal].key) + 1;
-        var dealAmount = Accounting.formatMoney(this.context.dataSource[this.props.focusedVal].aggregates[0].value,options);
+        let name = this.context.dataSource[this.props.focusedVal].label;
+        let rank = parseInt(this.context.dataSource[this.props.focusedVal].key) + 1;
+        let dealAmount = Accounting.formatMoney(this.context.dataSource[this.props.focusedVal].aggregates[0].value,options);
         return (
           <View style={{flexDirection: 'column', height: height, width: widthRight}}>
 

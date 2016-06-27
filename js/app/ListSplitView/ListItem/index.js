@@ -91,9 +91,7 @@ module.exports = React.createClass({
       let fontColor = '#000000';
       if (this.context.sobj !== undefined) {
         let sobj = this.context.sobj;
-        console.log(sobj);
         let title = this.context.sobj.Title;
-        console.log(title);
 
         this.props.callback(newVal, cData, fontColor, title);
       }
@@ -137,6 +135,7 @@ module.exports = React.createClass({
 
       let textFont = (Dimensions.get('window').height)*(31/1080);
       let amountFont = (Dimensions.get('window').height)*(29/1080);
+      console.log(this.state.isFocused);
       return (
           <TouchableHighlight style={{height: 70, marginLeft: 65, marginRight: 65, backgroundColor:this.state.isFocused ? 'white' : 'transparent'}} onPress={this.handlePress} onTVFocus={this.handleTVFocus} onTVBlur={this.handleTVBlur} disableParallax={true}>
 

@@ -13,6 +13,7 @@ const {
 import {CompactLayout} from 'react.force.layout';
 
 import ReportLView from '../../ReportListView';
+import {ReportContainer} from 'react.force.datacontainer';
 
 let windowHeight = Dimensions.get('window').height,
     windowWidth = Dimensions.get('window').width;
