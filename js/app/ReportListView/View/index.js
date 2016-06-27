@@ -45,6 +45,10 @@ module.exports = React.createClass({
     return this.state.dataSource.cloneWithRows(items);
   },
 
+  getData() {
+    return this.state.dataSource;
+  },
+
   getReportData(){
     setTimeout(()=>{
       if(this.context.reportData && this.context.reportData.length !== 0){
@@ -116,6 +120,8 @@ module.exports = React.createClass({
        return true;
      } else if (!shallowEqual(this.context.reportData, nextContext.reportData)) {
        return true;
+     } else if (this.state.dataSource !== nextState.dataSource) {
+       return true;
      }
      return false;
   },
@@ -133,7 +139,7 @@ module.exports = React.createClass({
   },
 
   render(){
-    this.getReportData();
+    console.log(this.state.dataSource);
 
     return(
       <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap'}}

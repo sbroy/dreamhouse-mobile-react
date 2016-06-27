@@ -48,7 +48,6 @@ module.exports = React.createClass({
 
     let dealValue = Accounting.formatMoney(details["AMOUNT"].label,options);
 
-    console.log(details);
     console.log(details["OPPORTUNITY_NAME"].label);
 
     return(
