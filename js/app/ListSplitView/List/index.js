@@ -83,8 +83,6 @@ module.exports = React.createClass({
     },
 
     render () {
-      //console.log('ListIndex ' + this.state.ind);
-     //console.log(this.context.userData);
      if(__APPLETV__) {
       return (
         <ListView

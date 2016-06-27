@@ -16,16 +16,28 @@ import {ReportContainer} from 'react.force.datacontainer';
 import ReportView from './View';
 
 module.exports = React.createClass ({
-  /*getDefaultProps(){
-    position: null,
-    summaryCallback: null,
-    entityId: null,
-    reportId: null,
-    numberOfRows: null
-  },*/
+  getDefaultProps(){
+    return {
+      positin: null,
+      summaryCallback: null,
+      entityId: null,
+      reportId: null,
+      numberOfRows: null
+    }
+  },
+
+  shouldComponentUpdate(nextProps, nextState, nextContext){
+     if (this.props.entityId !== nextProps.entityId){
+       return true;
+     } else if (this.props.position !== nextProps.position){
+       return true;
+     } 
+     return false;
+  },
+
   render(){
     return (
-      <ReportContainer id={this.props.reportId} refreshDate={new Date()}>
+      <ReportContainer id={this.props.reportId} entityId = {this.props.entityId} refreshDate={new Date()}>
         <ReportView {...this.props}/>
       </ReportContainer>
       )

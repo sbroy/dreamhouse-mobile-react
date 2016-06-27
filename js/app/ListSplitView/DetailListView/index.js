@@ -69,8 +69,6 @@ module.exports = React.createClass({
     },
 
     render () {
-      console.log('Report Id');
-
       var options = {
         symbol : "$",
         decimal : ".",

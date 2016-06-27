@@ -13,15 +13,17 @@ import {SobjContainer} from 'react.force.datacontainer';
 import ContainerView from './View';
 
 module.exports = React.createClass({
-  /*getDefaultProps(){
-    navigator: null,
-    chatterData: null,
-    position: null,
-    componentData: null,
-    entityId: null,
-    entityType: null,
-    sumOfEntities: null
-  },*/
+  getDefaultProps(){
+    return {
+      navigator: null,
+      chatterData: null,
+      position: null,
+      componentData: null,
+      entityId: null,
+      entityType: null,
+      sumOfEntities: null
+    }
+  },
 
   render(){
     return(

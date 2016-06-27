@@ -17,7 +17,6 @@ import ListItem from '../ListItem';
 
 import shallowEqual from 'shallowequal';
 
-
 module.exports = React.createClass({
 
   getDefaultProps(){
@@ -47,7 +46,6 @@ module.exports = React.createClass({
   },
 
   getReportData(){
-
     setTimeout(()=>{
       if(this.context.reportData && this.context.reportData.length !== 0){
         let groupings = this.context.reportData.groupingsDown.groupings,
@@ -67,7 +65,7 @@ module.exports = React.createClass({
         this.setState({
           reportApiResponse: this.context.reportData,
           detailColumnMap : this.context.reportData.reportMetadata.detailColumns,
-          dataSource: this.getDataSource(dataSource.rows)
+          dataSource: this.getDataSource(this.props.numberOfRows ? dataSource.rows.slice(0, this.props.numberOfRows) : dataSource.rows)
         });
 
         let numOfEntities = dataSource.rows.length;
@@ -75,18 +73,6 @@ module.exports = React.createClass({
         
       }
     },300);
-
-    /*console.log(this.context.reportData);
-    console.log(this.context.reportData.length);
-    while (this.context.reportData === undefined || this.context.reportData.length === 0 || this.context.reportData.length || undefined) {
-      console.log('no reportData');
-    }
-    console.log(this.context.reportData);
-    console.log(this.context.reportData.length);
-    //if(this.context.reportData !== undefined && this.context.reportData.length !== 0 && this.context.reportData.length !== undefined) {
-      console.log('in loop');*/
-      
-      
 
     // forceClient.reportData(this.props.reportId,
     //   (response)=>{
@@ -121,6 +107,7 @@ module.exports = React.createClass({
   },
 
 
+  
   shouldComponentUpdate(nextProps, nextState, nextContext){
      if (this.props.entityId !== nextProps.entityId){
        this.getReportData();
@@ -146,6 +133,8 @@ module.exports = React.createClass({
   },
 
   render(){
+    this.getReportData();
+
     return(
       <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap'}}
         dataSource={this.state.dataSource}

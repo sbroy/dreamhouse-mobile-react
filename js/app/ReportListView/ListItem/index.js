@@ -26,6 +26,7 @@ module.exports = React.createClass({
   },
 
   render(){
+
     let details = this.getDetails();
      /*<Theme.Menus.ActionListItem
             label={<Text style={{fontSize: 25, color: 'white'}}>{details["OPPORTUNITY_NAME"].label}</Text>}
@@ -46,6 +47,9 @@ module.exports = React.createClass({
       };
 
     let dealValue = Accounting.formatMoney(details["AMOUNT"].label,options);
+
+    console.log(details);
+    console.log(details["OPPORTUNITY_NAME"].label);
 
     return(
       <View style={{flexDirection: 'row', alignItems: 'stretch', flex:1}}>

@@ -54,7 +54,6 @@ module.exports = React.createClass({
     //nav to DetailView on press
     handlePress() {
       let rank = parseInt(this.props.rowData.key) + 1;
-      console.log(this.props.listData);
 
       if(this.props.navigator){
         this.props.navigator.push({
@@ -127,15 +126,10 @@ module.exports = React.createClass({
     },
 
     render () {
-      /*console.log('Sobj');
-      console.log(this.context.sobj);*/
-
-
       let rank = parseInt(this.props.rowData.key) + 1;
 
       let textFont = (Dimensions.get('window').height)*(31/1080);
       let amountFont = (Dimensions.get('window').height)*(29/1080);
-      console.log(this.state.isFocused);
       return (
           <TouchableHighlight style={{height: 70, marginLeft: 65, marginRight: 65, backgroundColor:this.state.isFocused ? 'white' : 'transparent'}} onPress={this.handlePress} onTVFocus={this.handleTVFocus} onTVBlur={this.handleTVBlur} disableParallax={true}>
 
