@@ -48,8 +48,6 @@ module.exports = React.createClass({
 
     let dealValue = Accounting.formatMoney(details["AMOUNT"].label,options);
 
-    console.log(details["OPPORTUNITY_NAME"].label);
-
     return(
       <View style={{flexDirection: 'row', alignItems: 'stretch', flex:1}}>
         <Text style={{fontSize: textFont, color:'#ffffff', fontFamily: 'SalesforceSans-Regular', paddingTop: 20, flex: 2}}>{details["OPPORTUNITY_NAME"].label}</Text>

@@ -51,13 +51,13 @@ module.exports = React.createClass({
 
   getReportData(){
     setTimeout(()=>{
-      if(this.context.reportData && this.context.reportData.length !== 0){
+      if(this.context.reportData && this.context.reportData.groupingsDown && this.context.reportData.length !== 0 ){
         let groupings = this.context.reportData.groupingsDown.groupings,
           factMap = this.context.reportData.factMap,
           dataSource,
           sumOfEntities;
       //console.log("****REPORTRESPONSE: " + JSON.stringify(this.context.reportData));
-
+      console.log(this.context.reportData);
         dataSource = groupings.map(function(grouping, index){
           let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
           mappedObject.position = grouping.key;
@@ -77,37 +77,6 @@ module.exports = React.createClass({
         
       }
     },300);
-
-    // forceClient.reportData(this.props.reportId,
-    //   (response)=>{
-    //     if(response){
-    //       let groupings = response.groupingsDown.groupings,
-    //           factMap = response.factMap,
-    //           dataSource,
-    //           sumOfEntities;
-
-    //       dataSource = groupings.map(function(grouping, index){
-    //         let mappedObject = Object.assign(grouping, factMap[grouping.key + '!T']);
-    //         mappedObject.position = grouping.key;
-    //         return mappedObject;
-    //       }).find(function(dataBlob){
-    //         return dataBlob.value === this.props.entityId;
-    //       }.bind(this));
-
-    //       this.setState({
-    //         reportApiResponse: response,
-    //         detailColumnMap : response.reportMetadata.detailColumns,
-    //         dataSource: this.getDataSource(this.props.numberOfRows ? dataSource.rows.slice(0, this.props.numberOfRows) : dataSource.rows)
-    //       });
-
-    //       let numOfEntities = dataSource.rows.length;
-    //       this.props.summaryCallback && this.props.summaryCallback(numOfEntities);
-    //     }
-    //   },
-    //   (error)=> {
-    //     console.warn(error);
-    //   }
-    // );
   },
 
 
@@ -139,8 +108,6 @@ module.exports = React.createClass({
   },
 
   render(){
-    console.log(this.state.dataSource);
-
     return(
       <ListView contentContainerStyle={{flexDirection:'column', justifyContent: 'flex-start', alignItems: 'stretch', flexWrap: 'nowrap'}}
         dataSource={this.state.dataSource}

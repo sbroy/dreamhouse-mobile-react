@@ -38,7 +38,6 @@ module.exports = React.createClass({
       componentData: {},
       chatterData: {},
       ind: '0',
-      fontColor: '#ffffff',
       title: "",
       subtitle: "",
       dataSource: [],
@@ -83,8 +82,8 @@ module.exports = React.createClass({
               dataSource: dbDataList,
               title: componentData.reportResult.reportMetadata.name.toUpperCase(),
               subtitle: moment(componentData.reportResult.reportMetadata.standardDateFilter.startDate).format('MMM D') +
-                        ' to ' + moment(componentData.reportResult.reportMetadata.standardDateFilter.endDate).format('MMM D, YYYY'),
-              numOfPages: Math.ceil(dbDataList.length/10)
+                        ' to ' + moment(componentData.reportResult.reportMetadata.standardDateFilter.endDate).format('MMM D, YYYY')
+              //numOfPages: Math.ceil(dbDataList.length/10)
             });
           }
 
@@ -128,15 +127,15 @@ module.exports = React.createClass({
     });
   },
 
-  textOnChange: function (value1, value2, value3, value4) {
+  textOnChange: function (ind, chatterData, role) {
          this.setState({
-          ind: value1,
-          chatterData: value2,
-          fontColor: value3,
-          role: value4
-        },function() {
-          this.forceUpdate();
+          ind: ind,
+          chatterData: chatterData,
+          role: role
         });
+        /*,function() {
+          this.forceUpdate();
+        });*/
   },
 
   componentDidMount(){
@@ -150,7 +149,7 @@ module.exports = React.createClass({
     let windowHeight = Dimensions.get('window').height;
     let windowWidth = Dimensions.get('window').width;
 
-    let height = windowHeight; //1000
+    let height = windowHeight; 
     let widthLeft = windowWidth*(1.1/2.1);
     let widthRight = windowWidth*(1/2.1);
 
@@ -162,8 +161,8 @@ module.exports = React.createClass({
           <View style={{flexDirection: 'row', alignSelf: 'flex-start', width: widthLeft, backgroundColor: 'transparent'}}>
 
             <View style={{flexDirection: 'column', alignSelf: 'flex-start', marginTop: 60, height: height, width: widthLeft}}>
-              <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 80, width: widthLeft}}>
-                <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90, paddingRight: 350}}>{this.state.title}</Text>
+              <View style={{flexDirection: 'row', alignSelf: 'flex-start', height: 90, width: widthLeft}}>
+                <Text style={{fontSize: 57, color:'white', fontFamily: 'SalesforceSans-Regular', paddingLeft:90}}>{this.state.title}</Text>
                 <Image source={{uri: 'salesforceLogo'}}/>
               </View>
 
@@ -176,11 +175,11 @@ module.exports = React.createClass({
                 <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', flex: 1, paddingRight: 30}}>{'AMOUNT'}</Text>
               </View>
 
-              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} fontColor = {this.state.fontColor} navigator={this.props.navigator} routes={this.props.routes}/>
+              <List callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.state.componentData} title = {this.state.title} navigator={this.props.navigator} routes={this.props.routes}/>
             </View>
 
               <View style={{flexDirection: 'column', alignItems: 'center', height: height, width: widthRight, marginRight: 90, backgroundColor:'rgba(35,4,69,0.5)'}}>
-                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} fontColor = {this.state.fontColor} title={this.state.role} navigator={this.props.navigator} routes={this.props.routes}/>
+                <DetailListView focusedVal = {this.state.ind} detailData = {this.state.componentData} chatterData = {this.state.chatterData} title={this.state.role} navigator={this.props.navigator} routes={this.props.routes}/>
               </View>
 
           </View>

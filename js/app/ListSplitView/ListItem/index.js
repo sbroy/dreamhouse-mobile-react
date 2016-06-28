@@ -38,14 +38,12 @@ module.exports = React.createClass({
     getInitialState(){
       return {
         ind: this.props.focusedVal,
-        fontColor: this.props.focusedVal,
         title: this.props.title,
         isFocused: false
       }
     },
 
     contextTypes: {
-      // userData: React.PropTypes.object,
       focusKey: React.PropTypes.string,
       chatterData: React.PropTypes.object,
       sobj: React.PropTypes.object
@@ -87,12 +85,10 @@ module.exports = React.createClass({
     doFocusCallback(){
       let newVal = this.props.rowData.key;
       let cData = this.context.chatterData;
-      let fontColor = '#000000';
       if (this.context.sobj !== undefined) {
         let sobj = this.context.sobj;
         let title = this.context.sobj.Title;
-
-        this.props.callback(newVal, cData, fontColor, title);
+        this.props.callback(newVal, cData, title);
       }
     },
 
@@ -114,20 +110,19 @@ module.exports = React.createClass({
     },
 
     shouldComponentUpdate (nextProps,nextState,nextContext) {
-      //return nextContext.userData != this.context.userData;
       return true;
     },
 
     componentDidUpdate(){
-      let newVal = this.props.rowData.key;
+      //run onFocusCallback to autofocus on first item
+      /*let newVal = this.props.rowData.key;
       if(newVal == 0 && this.state.isFocused === true){
         this.doFocusCallback();
-      }
+      }*/
     },
 
     render () {
       let rank = parseInt(this.props.rowData.key) + 1;
-
       let textFont = (Dimensions.get('window').height)*(31/1080);
       let amountFont = (Dimensions.get('window').height)*(29/1080);
       return (

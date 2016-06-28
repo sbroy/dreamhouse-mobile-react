@@ -82,7 +82,7 @@ static NSString * const OAuthRedirectURI        = @"testsfdc:///mobilesdk/detect
         };
         [SalesforceSDKManager sharedManager].switchUserAction = ^(SFUserAccount *fromUser, SFUserAccount *toUser) {
             [weakSelf handleUserSwitch:fromUser toUser:toUser];
-        };
+        };np
         
    */
         

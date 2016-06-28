@@ -24,7 +24,6 @@ module.exports = React.createClass({
     getInitialState(){
     return {
       ind: this.props.focusedVal,
-      fontColor: this.props.fontColor,
       chatterData: {},
       title: this.props.title
     }
@@ -52,15 +51,13 @@ module.exports = React.createClass({
       return ds.cloneWithRows(this.context.dataSource);
     },
 
-    textOnChange: function (value1, value2, value3, value4) {
+    textOnChange: function (ind, chatterData, title) {
          this.setState({
-          ind: value1,
-          chatterData: value2,
-          fontColor: value3,
-          title: value4
+          ind: ind,
+          chatterData: chatterData,
+          title: title
         }, function() {
-          //console.log(this.state.ind);
-          this.props.callback(this.state.ind, this.state.chatterData, this.state.fontColor, this.state.title);
+          this.props.callback(this.state.ind, this.state.chatterData, this.state.title);
 
         })
 
@@ -73,7 +70,7 @@ module.exports = React.createClass({
           detailComponent = (
             <SobjContainer key={rowData.value} type={'user'} id={rowData.value}>
               <ChatterUserContainer key={rowData.value} type='user' id={rowData.value}>
-                <ListSplitItem callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.props.listData} fontColor = {this.state.fontColor} rowData = {rowData} navigator={this.props.navigator} routes={this.props.routes}/>
+                <ListSplitItem callback = {this.textOnChange} focusedVal = {this.state.ind} listData = {this.props.listData} rowData = {rowData} navigator={this.props.navigator} routes={this.props.routes}/>
               </ChatterUserContainer>
             </SobjContainer>);
 

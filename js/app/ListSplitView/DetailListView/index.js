@@ -131,7 +131,7 @@ module.exports = React.createClass({
 
             <View style={{flexDirection: 'column', paddingLeft: 90, paddingTop: 50, paddingRight:90}}>
               <Text style={{fontSize: headingFont, color:'white', fontFamily: 'SalesforceSans-Regular', alignItems: 'center'}} numberOfLines={1} >{'RECENTLY CLOSED OPPORTUNITIES'}</Text>
-              <ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} position={rank} handleReportFacts={this.setReportFacts} entityId={this.context.dataSource[this.props.focusedVal].value} summaryCallback = {this.getDealsClosed} numberOfRows = {3}/>
+              <ReportLView reportId={this.props.detailData.reportResult.reportMetadata.id} position={rank} entityId={this.context.dataSource[this.props.focusedVal].value} summaryCallback = {this.getDealsClosed} numberOfRows = {3}/>
             </View>
           </View>
         );
